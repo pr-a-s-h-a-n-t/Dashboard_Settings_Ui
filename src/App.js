@@ -3,7 +3,7 @@ import "./App.css";
 
 function App() {
   return (
-    <div
+    <div className="App"
       style={{
         display: "flex",
         padding: "10px",
@@ -11,6 +11,7 @@ function App() {
         height: "100%",
         justifyContent: "center",
         marginTop: "50%",
+        boxSizing: "border-box",
         // alignItems: "center",
       }}
     >
