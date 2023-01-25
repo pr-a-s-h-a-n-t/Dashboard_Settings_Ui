@@ -11,7 +11,7 @@ function App() {
         height: "100%",
         justifyContent: "center",
         marginTop: "50%",
-        alignItems: "center",
+        // alignItems: "center",
       }}
     >
       <div
