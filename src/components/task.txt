@@ -1,0 +1,19 @@
+A. Problem Statement  
+
+1.Create pages, matching the high-fidelity wireframe on Figma
+
+2.Fetch/Download the “Schema.json” JSON located at here. 
+
+3.Generate the map channels form by using “channels” key - values in schema.json and for additional settings use data inside “optionals” key values. 
+For select element options (Primary and Ref Channels) use any 10-12 any random strings values which can be selected there.
+
+4.Add backup channels button will open a collapsible dropdown and will have the same Primary and Ref channel select element.
+ Repeat the same process like above here as well.
+
+
+5.In Preview page if someone clicks on Edit Channels then go back to step two which is channel config/Map Channels page. 
+Make sure that you use Global State Context / Redux to manage the data/state globally and save channels configurations to local storage in real time. 
+So that if the user close the browser and comes back you have to load those settings again. 
+
+6.After preview and third step completion, show the save page and disable the edit buttons there and show notification as per figma design.
+Responsiveness of the pages would be a plus point. 

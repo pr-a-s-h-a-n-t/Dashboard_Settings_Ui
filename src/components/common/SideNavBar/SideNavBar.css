@@ -1,0 +1,25 @@
+.SideNavBar-container{
+  width: 18.75rem;
+  height: 100vh;
+  border: 1px solid red;
+  background-color: linear-gradient(180deg, #04273A 0%, rgba(3, 23, 35, 0.96) 100%);
+}
+
+.SideNavBar-header h1 {
+  width: 8.875rem;
+  /* padding: 0; */
+  height: 2.25rem;
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+  text-align: center;
+  border: 1px solid red;
+  margin: 2.5rem 4.9375rem 2rem 4.9375rem;
+  color: #ffffff;
+}
+hr {
+  width: 15.625rem; 
+  border: 2.19868px solid #4f4f4f;
+}
