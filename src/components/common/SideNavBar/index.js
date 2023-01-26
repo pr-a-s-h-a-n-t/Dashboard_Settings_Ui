@@ -1,32 +1,33 @@
-
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
-import Divider from '@mui/material/Divider';
-import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
-import MenuIcon from '@mui/icons-material/Menu';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import paperPlus from "../../../assets/sideNav/Paper Plus.png"
+import * as React from "react";
+import PropTypes from "prop-types";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import CssBaseline from "@mui/material/CssBaseline";
+import Divider from "@mui/material/Divider";
+import Drawer from "@mui/material/Drawer";
+import IconButton from "@mui/material/IconButton";
+import InboxIcon from "@mui/icons-material/MoveToInbox";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import MailIcon from "@mui/icons-material/Mail";
+import MenuIcon from "@mui/icons-material/Menu";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import paperPlus from "../../../assets/sideNav/Paper Plus.png";
 import Coins from "../../../assets/sideNav/Coins.png";
-import Category from "../../../assets/sideNav/Category.png"
+import Category from "../../../assets/sideNav/Category.png";
 import "./SideNavBar.css";
+import { Grid } from "@mui/material";
+import { flexbox } from "@mui/system";
 const drawerWidth = 300;
- 
+
 const navItem = [
   {
     name: "Dashboard",
-    logo: Category ,
+    logo: Category,
   },
   {
     name: "Montages",
@@ -36,7 +37,6 @@ const navItem = [
     name: "Credits",
     logo: Coins,
   },
-   
 ];
 
 function SideNavBar(props) {
@@ -48,25 +48,36 @@ function SideNavBar(props) {
   };
 
   const drawer = (
-    <div className='SideNavBar-container'  style={{
-      border: "1px solid green",
-    }}>
+    <div>
       {/* <Toolbar title =" React Test"/> */}
       <div className="SideNavBar-header">
-       <h1>React Test</h1>
-       
+        <h1>React Test</h1>
       </div>
-      <hr/>
-      <List 
-      sx={{
-        border: "1px solid pink",
-      }}
+      <hr />
+      <List
+        sx={{
+          border: "1px solid pink",
+        }}
       >
-        {navItem.map((text, index) => (
-          <ListItem key={text} disablePadding>
+        {navItem.map((text, i) => (
+          <ListItem
+            key={i}
+            disablePadding
+            sx={{
+              border: "1px solid pink",
+              width: "133px",
+              height: "24px",
+              display: " flex",
+              flexDirection: "row",
+              justifyContent: " center",
+              alignItems: "center",
+              margin: "48px 135px 49px 32px",
+              gap: "16px",
+            }}
+          >
             <ListItemButton>
               <ListItemIcon>
-                <img src={text.logo } alt=""/>
+                <img src={text.logo} alt="" />
               </ListItemIcon>
               <ListItemText primary={text.name} />
             </ListItemButton>
@@ -89,10 +100,13 @@ function SideNavBar(props) {
     </div>
   );
 
-  const container = window !== undefined ? () => window().document.body : undefined;
+  const container =
+    window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    // <div className='SideNavBar-container'>
+
+    <Box sx={{ display: "flex" }}>
       <CssBaseline />
       {/* <AppBar
         position="fixed"
@@ -131,8 +145,14 @@ function SideNavBar(props) {
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
-            display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            display: { xs: "block", sm: "none" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: "18.75rem",
+              color: "white",
+              background:
+                "linear-gradient(180deg, #04273A 0%, rgba(3, 23, 35, 0.96) 100%)",
+            },
           }}
         >
           {drawer}
@@ -140,53 +160,53 @@ function SideNavBar(props) {
         <Drawer
           variant="permanent"
           sx={{
-            display: { xs: 'none', sm: 'block' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            display: { xs: "none", sm: "block" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: "18.75rem",
+              color: "white",
+              background:
+                "linear-gradient(180deg, #04273A 0%, rgba(3, 23, 35, 0.96) 100%)",
+            },
           }}
           open
         >
-          {drawer}
+          <Grid
+            container
+            // overflow="hidden"
+          >
+            <Grid item>{drawer}</Grid>
+            <Grid
+              item
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                display: "flex",
+                flexDirection: " column",
+                justifyContent: "center",
+                alignItems: " center",
+                padding: "40px",
+                gap: "8px",
+                width: "248px",
+                height: "145px",
+                background: "#02354F",
+                boxShadow: "0px 3px 20px 4px rgba(0, 0, 0, 0.04)",
+                borderRadius: " 4px",
+                margin: " 60%  auto 0",
+              }}
+            >
+              <h1>1,650</h1>
+              <Typography>Total Credits Available</Typography>
+            </Grid>
+          </Grid>
         </Drawer>
       </Box>
-      {/* <Box
-        component="main"
-        sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
-      >
-        <Toolbar />
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
-          enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
-          imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.
-          Convallis convallis tellus id interdum velit laoreet id donec ultrices.
-          Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra
-          nibh cras. Metus vulputate eu scelerisque felis imperdiet proin fermentum
-          leo. Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt lobortis
-          feugiat vivamus at augue. At augue eget arcu dictum varius duis at
-          consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa
-          sapien faucibus et molestie ac.
-        </Typography>
-        <Typography paragraph>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper
-          eget nulla facilisi etiam dignissim diam. Pulvinar elementum integer enim
-          neque volutpat ac tincidunt. Ornare suspendisse sed nisi lacus sed viverra
-          tellus. Purus sit amet volutpat consequat mauris. Elementum eu facilisis
-          sed odio morbi. Euismod lacinia at quis risus sed vulputate odio. Morbi
-          tincidunt ornare massa eget egestas purus viverra accumsan in. In hendrerit
-          gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem
-          et tortor. Habitant morbi tristique senectus et. Adipiscing elit duis
-          tristique sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
-          eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
-          posuere sollicitudin aliquam ultrices sagittis orci a.
-        </Typography>
-      </Box> */}
     </Box>
+    // </div>
   );
 }
 
 SideNavBar.propTypes = {
-  
   window: PropTypes.func,
 };
 

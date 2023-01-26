@@ -1,8 +1,8 @@
 .SideNavBar-container{
   width: 18.75rem;
   height: 100vh;
-  border: 1px solid red;
-  background-color: linear-gradient(180deg, #04273A 0%, rgba(3, 23, 35, 0.96) 100%);
+  border: 10px solid red;
+  overflow : hidden;
 }
 
 .SideNavBar-header h1 {
