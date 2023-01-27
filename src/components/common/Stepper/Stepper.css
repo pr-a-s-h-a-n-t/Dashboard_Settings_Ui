@@ -8,7 +8,7 @@
   background: #ffffff;
   border-radius: 0.5rem;
   display: flex;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   align-items: center;
   /* gap: clamp(32px 10vw 467px); */
 }
@@ -45,3 +45,4 @@ hr {
   letter-spacing: 0.02em;
   color: #10a44b;
 }
+ 

@@ -5,7 +5,7 @@ import "./UDF.css";
 import { Grid } from "@mui/material";
 import BottomNav from "../common/BottomNav";
 import userLogo from "../../assets/topheading/userLogo.png";
-
+import Upload from "../../components/edf/index"
 function UDF() {
   return (
     <div className="udf-container">
@@ -43,6 +43,9 @@ function UDF() {
       </div>
       {/* </Grid> */}
       {/* <Grid item  >*/}
+      {/* <div className="Upload-container">
+          <Upload />
+      </div> */}
       <div className="bottomnavbar-container">
           <BottomNav />
       </div>

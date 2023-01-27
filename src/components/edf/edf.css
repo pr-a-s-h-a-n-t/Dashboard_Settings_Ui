@@ -1,0 +1,9 @@
+.upload-conatainer {
+  position: absolute;
+  width: 100%;
+  /* height: 500px; */
+border: 1px solid red;
+  /* background: #ffffff; */
+  background-color: aquamarine;
+  border-radius: 5.43313px;
+}
