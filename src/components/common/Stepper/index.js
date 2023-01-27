@@ -4,9 +4,17 @@ import "./Stepper.css";
 export default function Stepper() {
   return (
     <div className="stepper-container">
-      <div className="stepper-elements">1</div>
-      <div className="stepper-elements">2</div>
-      <div className="stepper-elements">3</div>
+      <div className="stepper-elements">
+        <span>1</span>
+      </div>
+
+      <div className="stepper-elements">
+        <span>2</span>
+      </div>
+
+      <div className="stepper-elements">
+        <span>3</span>
+      </div>
     </div>
   );
 }

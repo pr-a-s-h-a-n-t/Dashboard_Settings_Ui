@@ -139,13 +139,13 @@ function SideNavBar(props) {
         <Drawer
           container={container}
           variant="temporary"
-          open={mobileOpen}
+          // open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
-            display: { xs: "block", sm: "none" },
+            // display: { xs: "block", sm: "none" },
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: "18.75rem",
@@ -160,7 +160,7 @@ function SideNavBar(props) {
         <Drawer
           variant="permanent"
           sx={{
-            display: { xs: "none", sm: "block" },
+            // display: { xs: "none", sm: "block" },
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: "18.75rem",
@@ -171,10 +171,7 @@ function SideNavBar(props) {
           }}
           open
         >
-          <Grid
-            container
-            overflow="hidden"
-          >
+          <Grid container overflow="hidden">
             <Grid item>{drawer}</Grid>
             <Grid
               item
