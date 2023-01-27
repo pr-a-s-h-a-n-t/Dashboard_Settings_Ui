@@ -194,7 +194,7 @@ function SideNavBar(props) {
                 borderRadius: " 4px",
                 // margin: " 60%  auto 10% auto",
                 position: "absolute",
-                left: "1.5rem0",
+                left: "1.5rem",
                 bottom: "6%",
               }}
             >
