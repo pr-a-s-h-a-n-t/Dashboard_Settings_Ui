@@ -2,7 +2,7 @@
   width: 18.75rem;
   height: 100vh;
   border: 10px solid red;
-  overflow : hidden;
+  /* overflow : hidden !important; */
 }
 
 .SideNavBar-header h1 {

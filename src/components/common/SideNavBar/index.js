@@ -173,7 +173,7 @@ function SideNavBar(props) {
         >
           <Grid
             container
-            // overflow="hidden"
+            overflow="hidden"
           >
             <Grid item>{drawer}</Grid>
             <Grid
@@ -187,12 +187,15 @@ function SideNavBar(props) {
                 alignItems: " center",
                 padding: "40px",
                 gap: "8px",
-                width: "248px",
+                width: "15.5rem",
                 height: "145px",
                 background: "#02354F",
                 boxShadow: "0px 3px 20px 4px rgba(0, 0, 0, 0.04)",
                 borderRadius: " 4px",
-                margin: " 60%  auto 0",
+                // margin: " 60%  auto 10% auto",
+                position: "absolute",
+                left: "1.5rem0",
+                bottom: "6%",
               }}
             >
               <h1>1,650</h1>
