@@ -1,9 +1,14 @@
 .upload-conatainer {
-  position: absolute;
-  width: 100%;
-  /* height: 500px; */
+  /* position: absolute; */
+  width: 95%;
+  /* height: 35.625rem; */
+  height: clamp(80px, 48vh, 35.625rem);
+  margin: 40px auto;
 border: 1px solid red;
   /* background: #ffffff; */
   background-color: aquamarine;
   border-radius: 5.43313px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

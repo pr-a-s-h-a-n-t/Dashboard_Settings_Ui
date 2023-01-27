@@ -43,9 +43,9 @@ function UDF() {
       </div>
       {/* </Grid> */}
       {/* <Grid item  >*/}
-      {/* <div className="Upload-container">
+      <div className="Upload-container">
           <Upload />
-      </div> */}
+      </div>
       <div className="bottomnavbar-container">
           <BottomNav />
       </div>
