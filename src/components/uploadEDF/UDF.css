@@ -48,3 +48,13 @@
   order: 1;
   flex-grow: 0;
 }
+
+.bottomnavbar-container{
+  width: 80%  ;
+  height: 8.5625rem;
+  border: 1px solid wheat;
+  position: absolute;
+  left: 300px;
+  bottom: 0;
+
+}

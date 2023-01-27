@@ -42,9 +42,11 @@ function UDF() {
         <Stepper />
       </div>
       {/* </Grid> */}
-      {/* <Grid item  >
+      {/* <Grid item  >*/}
+      <div className="bottomnavbar-container">
           <BottomNav />
-        </Grid> */}
+      </div>
+      {/*   </Grid>  */}
       {/* </Grid> */}
     </div>
   );
