@@ -1,11 +1,11 @@
 import React from "react";
 
-import UDF from "./uploadEDF/UDF";
+import Mortages from "./Mortages/Mortages";
 
 function AllComponents() {
   return (
     <div>
-      <UDF />
+      <Mortages />
     </div>
   );
 }

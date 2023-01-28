@@ -5,8 +5,9 @@ import "./UDF.css";
 import { Grid } from "@mui/material";
 import BottomNav from "../common/BottomNav";
 import userLogo from "../../assets/topheading/userLogo.png";
-import Upload from "../../components/edf/index"
-function UDF() {
+import Upload from "../edf/index";
+import MapChannels from "../mapchannels";
+function Mortages() {
   return (
     <div className="udf-container">
       {/* <Grid container columnGap={1.5}>
@@ -44,10 +45,11 @@ function UDF() {
       {/* </Grid> */}
       {/* <Grid item  >*/}
       <div className="Upload-container">
-          <Upload />
+        {/* <Upload /> */}
+        <MapChannels />
       </div>
       <div className="bottomnavbar-container">
-          <BottomNav />
+        <BottomNav />
       </div>
       {/*   </Grid>  */}
       {/* </Grid> */}
@@ -55,4 +57,4 @@ function UDF() {
   );
 }
 
-export default UDF;
+export default Mortages;
