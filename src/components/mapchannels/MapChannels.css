@@ -1,14 +1,13 @@
 .MapChannels-container {
   height: 100%;
-overflow: hidden;
+  overflow: hidden;
   border: 1px solid red;
   /* overflow: scroll !important; */
 }
-.table-row-container{
-  overflow: scroll   ;
+.table-row-container {
+  overflow: scroll;
   overflow-x: hidden;
   height: 445px;
-
 }
 
 .table-head {
@@ -55,13 +54,18 @@ overflow: hidden;
   border: 1px solid red;
   background: #ffffff;
   border-radius: 5px 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .table-row div {
   width: 25%;
   font-weight: 500;
   color: inherit;
-  text-align: center;
+  
+   
   /* border: 1px solid #000000; */
 }
 
@@ -73,7 +77,13 @@ overflow: hidden;
   flex-direction: row;
   gap: 40px;
   background: #ffffff;
-border: 1px solid orange;
+  border: 1px solid orange;
 
   border-radius: 8px;
+}
+.channels-select-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
