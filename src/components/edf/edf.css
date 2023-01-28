@@ -1,14 +1,70 @@
-.upload-conatainer {
+/* display size is 1900px 
+Note- work on css after completing the logic part!!!
+*/
+.upload-edfs-conatainer {
   /* position: absolute; */
   width: 95%;
-  /* height: 35.625rem; */
-  height: clamp(80px, 48vh, 35.625rem);
+  height: 35.625rem;
+  /* height: clamp(80px, auto, 35.625rem); */
   margin: 40px auto;
-border: 1px solid red;
+  border: 1px solid red;
   /* background: #ffffff; */
   background-color: aquamarine;
   border-radius: 5.43313px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.edfs-upload {
+  width: 1444px;
+  height: 506px;
+  background: #f8f8f8;
+  border: 1.5px dashed #8a8a8a;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.upload {
+  width: 174px;
+  height: 196px;
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#upload-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+  margin-top: 20px;
+  width: 174px;
+  height: 45px;
+
+  background: #eaeaea;
+  border: 1px solid #6d6d6d;
+  border-radius: 5px;
+}
+
+.upload h5 {
+  /* position: absolute; */
+  width: 129px;
+  height: 21px;
+  padding: 0;
+  margin-top: 10px;
+  margin-bottom: 0;
+  text-align: center;
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+  color: #0f0f0f;
 }
