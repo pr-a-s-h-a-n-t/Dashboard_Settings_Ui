@@ -1,6 +1,9 @@
 import React from "react";
 import "./MapChannels.css";
-// import schema from "../../schema.json";
+import { ChannelsData } from "../../schema";
+
+// export const primaryChannel = [
+import { primaryChannel } from "../randomdata/index";
 
 const columns = [
   {
@@ -17,50 +20,68 @@ const columns = [
   },
 ];
 
-const Ch = [
-  "channel-1",
-  "channel-2",
-  "channel-3",
-  "channel-4",
-  "channel-5",
-  "channel-6",
-  "channel-7",
-  "channel-8",
-  "channel-9",
-  "channel-9",
-  "channel-10",
-];
-
 function MapChannels() {
   return (
     <div className="MapChannels-container">
-      <div className="table-head">
-        {columns.map((column, index) => {
-          return (
-            <div
-              key={index}
-              style={{
-                width: column.width ? column.width : "25%",
-              }}
-            >
-              {column.title}
-            </div>
-          );
-        })}
+      <form>
+      <div className="mapChannels-table">
+
+        <div className="table-head">
+          {columns.map((column, index) => {
+            return (
+              <div
+                key={index}
+                style={{
+                  width: column.width ? column.width : "25%",
+                }}
+              >
+                {column.title}
+              </div>
+            );
+          })}
+        </div>
+        <div className="table-row-container">
+          {ChannelsData.channels.map((column, index) => {
+            return (
+              <div
+                className="table-row"
+                key={index}
+                style={{
+                  width: column.width ? column.width : "25%",
+                }}
+              >
+                {column}
+              </div>
+            );
+          })}
+        </div>
       </div>
-      {Ch.map((column, index) => {
-        return (
-          <div
-            className="table-row"
-            key={index}
-            style={{
-              width: column.width ? column.width : "25%",
-            }}
-          >
-            {column}
+        <div className="additional-setting-contianer">
+          <div className="additional-setting-contianer-item">
+            Additional Settings
           </div>
-        );
-      })}
+          <div className="additional-setting-contianer-item">
+            <span>
+              <input
+                type="checkbox"
+                id="Spindle"
+                name="Spindle"
+                value="Spindle"
+              />
+              <label htmlFor="Spindle"> Spindle</label>
+            </span>
+            <span>
+              <input
+                type="checkbox"
+                id="Artifacts"
+                name="Artifacts"
+                value="Artifacts"
+              />
+              <label htmlFor="Artifacts"> Artifacts</label>
+            </span>
+          </div>
+        </div>
+      </form>
     </div>
   );
 }

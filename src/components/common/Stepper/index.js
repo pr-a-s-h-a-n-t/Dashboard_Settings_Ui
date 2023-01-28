@@ -95,6 +95,9 @@ import Check from "@mui/icons-material/Check";
 import SettingsIcon from "@mui/icons-material/Settings";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import VideoLabelIcon from "@mui/icons-material/VideoLabel";
+
+import "./Stepper.css";
+
 import StepConnector, {
   stepConnectorClasses,
 } from "@mui/material/StepConnector";
@@ -256,36 +259,31 @@ ColorlibStepIcon.propTypes = {
   icon: PropTypes.node,
 };
 
-const steps = ["1", "2", "3"];
+const steps = ["Upload EDFs", "Map Channels", "Save & Preview"];
 
 export default function StepperComponent() {
   return (
-    <Stack sx={{ width: "100%" }} spacing={4}>
-      {/* <Stepper alternativeLabel   activeStep={1} connector={<QontoConnector />}>
-        {steps.map((label) => (
-          <Step key={label}  >
-            <StepLabel StepIconComponent={QontoStepIcon}>{ }</StepLabel>
-          </Step>
-        ))}
-      </Stepper> */}
+    <Stack
+      // sx={{ width: "100%" }}
+      sx={{
+        width: "100%",
+        border: "1px solid red",
+        padding: "20px",
+        height: "8.5625rem",
+        // justifyContent: "space-between",
+        // gap: "40px",
+        // alignItems: "center",
+      }}
+      spacing={4}
+    >
       <Stepper
-        // alternativeLabel
+        alternativeLabel
         activeStep={1}
         connector={<ColorlibConnector />}
-        sx={{
-          width: "100%",
-          border: "1px solid red",
-          padding: "20px",
-          height: "8.5625rem",
-          // display: "flex",
-          // justifyContent: "space-around",
-          // gap: "40px",
-          alignItems: "center",
-        }}
       >
         {steps.map((label) => (
           <Step key={label}>
-            <StepLabel StepIconComponent={ColorlibStepIcon}>{}</StepLabel>
+            <StepLabel StepIconComponent={ColorlibStepIcon}>{label}</StepLabel>
           </Step>
         ))}
       </Stepper>
