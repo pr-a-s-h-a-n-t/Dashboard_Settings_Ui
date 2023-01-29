@@ -54,7 +54,7 @@ function CustomDropDown({ dropDownList, val, onChange, required, disabled }) {
           size="small"
           label="Select"
           sx={{
-            width: "100px",
+            width: "274px",
             height: "40px",
             border: "1px solid black",
           }}

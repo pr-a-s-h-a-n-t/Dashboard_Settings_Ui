@@ -3,6 +3,7 @@ import "./MapChannels.css";
 import { ChannelsData } from "../../schema";
 import CustomDropDown from "../../components/common/customdropdown/CustomDropDown";
 import { primaryChannel, referenceChannel } from "../randomdata/index";
+import { Button } from "@mui/material";
 
 const columns = [
   {
@@ -25,7 +26,7 @@ let additionalSettings = ChannelsData.optionals[0];
 const { optional1, optional2 } = additionalSettings;
 // console.log("Additional settings",  optional1, optional2 , "=======>");
 
-function MapChannels({stepperValue, setStepperValue}) {
+function MapChannels({ stepperValue, setStepperValue }) {
   const [values, setValues] = useState({
     primaryChannel: "",
     refChannel: "",
@@ -36,11 +37,11 @@ function MapChannels({stepperValue, setStepperValue}) {
     optional2,
   });
   const [isChecked, setIsChecked] = useState(false);
+  const [backupChannel, setBackupChannel] = useState(false);
 
-
-// useEffect(()=>{
-//   setStepperValue(1);
-// }, [])
+  // useEffect(()=>{
+  //   setStepperValue(1);
+  // }, [])
 
   console.log("additional options", additionalOptions);
   return (
@@ -64,13 +65,7 @@ function MapChannels({stepperValue, setStepperValue}) {
           <div className="table-row-container">
             {ChannelsData.channels.map((column, index) => {
               return (
-                <div
-                  className="table-row"
-                  key={index}
-                  // style={{
-                  //   width: column.width ? column.width : "25%",
-                  // }}
-                >
+                <div className="table-row" key={index}>
                   <div>{column}</div>
                   <div className="channels-select-container">
                     {/* <label className=" mapChannel-label">Edit Channel</label> */}
@@ -96,10 +91,47 @@ function MapChannels({stepperValue, setStepperValue}) {
                         }
                       />
                     </div>
+
+                    <div>
+                      <Button
+                        variant="outlined"
+                        onClick={() => setBackupChannel(!backupChannel)}
+                        sx={{
+                          width: "fit-content",
+                          height: "21px",
+                          fontFamily: "DM Sans",
+                          fontStyle: "normal",
+                          fontWeight: " 500",
+                          fontSize: "16px",
+                          lineHeight: "21px",
+                          // display: "flex",
+                          alignItems: " center",
+
+                          color: " #2F7EC7",
+                        }}
+                      >
+                        Hide backup channels (0)
+                      </Button>
+                    </div>
                   </div>
                 </div>
               );
             })}
+            <div>
+              {backupChannel ? (
+                <div
+                  style={{
+                    width: "100%",
+                    height: "49px",
+                    display: "block",
+
+                    border: "1px solid green",
+                  }}
+                ></div>
+              ) : (
+                ""
+              )}
+            </div>
             <div className="additional-setting-contianer">
               <div className="additional-setting-contianer-item">
                 Additional Settings

@@ -5,7 +5,7 @@
   /* overflow: scroll !important; */
 }
 .table-row-container {
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   /* overflow: scroll; */
   height: 100%;
 }
@@ -61,9 +61,9 @@
 }
 
 .table-row div {
-  width: 25%;
-  font-weight: 500;
-  color: inherit;
+  /* width: 25%; */
+  /* font-weight: 500;
+  color: inherit; */
 
   /* border: 1px solid #000000; */
 }
