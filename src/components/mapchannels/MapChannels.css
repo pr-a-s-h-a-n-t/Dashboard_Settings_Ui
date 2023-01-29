@@ -1,13 +1,13 @@
 .MapChannels-container {
   height: 100%;
-  overflow: hidden;
+  overflow: scroll;
   border: 1px solid red;
   /* overflow: scroll !important; */
 }
 .table-row-container {
-  overflow: scroll;
   overflow-x: hidden;
-  height: 445px;
+  /* overflow: scroll; */
+  height: 100%;
 }
 
 .table-head {
@@ -64,8 +64,7 @@
   width: 25%;
   font-weight: 500;
   color: inherit;
-  
-   
+
   /* border: 1px solid #000000; */
 }
 
@@ -78,12 +77,29 @@
   gap: 40px;
   background: #ffffff;
   border: 1px solid orange;
-
   border-radius: 8px;
+  padding-top: 3%;
+  padding-left: 2%;
 }
 .channels-select-container {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+}
+
+.additional-setting-contianer-item span {
+  margin: 0 8px;
+  width: fit-content;
+  height: 23px;
+
+  /* 18 Body Medium */
+
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 23px;
+
+  color: #0f0f0f;
 }

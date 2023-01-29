@@ -64,8 +64,8 @@ function CustomDropDown({ dropDownList, val, onChange, required, disabled }) {
           value={val}
           onChange={handleChange}
         >
-          {dropDownList.map((item) => (
-            <MenuItem key={item.primaryChannel} value={item.value}>
+          {dropDownList.map((item, id) => (
+            <MenuItem key={id} value={item.value}>
               {item.label}
             </MenuItem>
           ))}

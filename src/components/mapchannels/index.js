@@ -19,11 +19,25 @@ const columns = [
   },
 ];
 
+let additionalSettings = ChannelsData.optionals[0];
+// console.log("Additional settings", additionalSettings);
+
+const { optional1, optional2 } = additionalSettings;
+// console.log("Additional settings",  optional1, optional2 , "=======>");
+
 function MapChannels() {
   const [values, setValues] = useState({
     primaryChannel: "",
     refChannel: "",
   });
+
+  const [additionalOptions, setAddtionalOptions] = useState({
+    optional1,
+    optional2,
+  });
+  const [isChecked, setIsChecked] = useState(false);
+
+  console.log("additional options", additionalOptions);
   return (
     <div className="MapChannels-container">
       <form>
@@ -48,9 +62,9 @@ function MapChannels() {
                 <div
                   className="table-row"
                   key={index}
-                  style={{
-                    width: column.width ? column.width : "25%",
-                  }}
+                  // style={{
+                  //   width: column.width ? column.width : "25%",
+                  // }}
                 >
                   <div>{column}</div>
                   <div className="channels-select-container">
@@ -81,31 +95,46 @@ function MapChannels() {
                 </div>
               );
             })}
-          </div>
-        </div>
-        <div className="additional-setting-contianer">
-          <div className="additional-setting-contianer-item">
-            Additional Settings
-          </div>
-          <div className="additional-setting-contianer-item">
-            <span>
-              <input
-                type="checkbox"
-                id="Spindle"
-                name="Spindle"
-                value="Spindle"
-              />
-              <label htmlFor="Spindle"> Spindle</label>
-            </span>
-            <span>
-              <input
-                type="checkbox"
-                id="Artifacts"
-                name="Artifacts"
-                value="Artifacts"
-              />
-              <label htmlFor="Artifacts"> Artifacts</label>
-            </span>
+            <div className="additional-setting-contianer">
+              <div className="additional-setting-contianer-item">
+                Additional Settings
+              </div>
+              <div className="additional-setting-contianer-item">
+                <span>
+                  <input
+                    type="checkbox"
+                    checked={additionalOptions.optional1}
+                    id={Object.keys(additionalSettings)[0]}
+                    name={Object.keys(additionalSettings)[0]}
+                    value={Object.keys(additionalSettings)[0]}
+                    onChange={(e) =>
+                      setAddtionalOptions({ optional1: e.target.checked })
+                    }
+                  />
+
+                  <label htmlFor={Object.keys(additionalSettings)[0]}>
+                    {" "}
+                    {Object.keys(additionalSettings)[0]}{" "}
+                  </label>
+                </span>
+                <span>
+                  <input
+                    type="checkbox"
+                    checked={additionalOptions.optional2}
+                    id={Object.keys(additionalSettings)[1]}
+                    name={Object.keys(additionalSettings)[1]}
+                    value={additionalOptions.optional2}
+                    onChange={(e) =>
+                      setAddtionalOptions({ optional2: e.target.checked })
+                    }
+                  />
+
+                  <label htmlFor={Object.keys(additionalSettings)[1]}>
+                    {Object.keys(additionalSettings)[1]}
+                  </label>
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </form>
