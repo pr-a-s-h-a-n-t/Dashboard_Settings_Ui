@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SideNavBar from "../common/SideNavBar";
 import Stepper from "../common/Stepper";
 import "./UDF.css";
@@ -7,7 +7,20 @@ import BottomNav from "../common/BottomNav";
 import userLogo from "../../assets/topheading/userLogo.png";
 import Upload from "../edf/index";
 import MapChannels from "../mapchannels";
+
 function Mortages() {
+
+  const[stepperValue, setStepperValue] = useState(0)
+const checkedf = () =>{
+ let temp =  localStorage.getItem("edf")
+ if(temp === "dataUploaded"){
+  setStepperValue(1);
+ }
+}
+  useEffect(()=>{
+checkedf();
+  },[])
+
   return (
     <div className="udf-container">
       {/* <Grid container columnGap={1.5}>
@@ -40,13 +53,22 @@ function Mortages() {
         </div>
       </div>
       <div className="steppercontainer">
-        <Stepper />
+        <Stepper
+        setStepperValue={setStepperValue}
+          stepperValue = {stepperValue}
+
+         />
       </div>
       {/* </Grid> */}
       {/* <Grid item  >*/}
       <div className="Upload-container">
-        {/* <Upload /> */}
-        <MapChannels />
+        { stepperValue === 0 ? <Upload /> 
+        : 
+        <MapChannels 
+          setStepperValue={setStepperValue}
+          stepperValue = {stepperValue}
+
+        />}
       </div>
       <div className="bottomnavbar-container">
         <BottomNav />

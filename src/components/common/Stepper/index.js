@@ -261,7 +261,7 @@ ColorlibStepIcon.propTypes = {
 
 const steps = ["Upload EDFs", "Map Channels", "Save & Preview"];
 
-export default function StepperComponent() {
+export default function StepperComponent({ setStepperValue, stepperValue }) {
   return (
     <Stack
       // sx={{ width: "100%" }}
@@ -278,7 +278,7 @@ export default function StepperComponent() {
     >
       <Stepper
         alternativeLabel
-        activeStep={1}
+        activeStep={stepperValue}
         connector={<ColorlibConnector />}
       >
         {steps.map((label) => (

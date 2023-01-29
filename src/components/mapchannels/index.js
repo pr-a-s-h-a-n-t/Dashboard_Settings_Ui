@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./MapChannels.css";
 import { ChannelsData } from "../../schema";
 import CustomDropDown from "../../components/common/customdropdown/CustomDropDown";
@@ -25,7 +25,7 @@ let additionalSettings = ChannelsData.optionals[0];
 const { optional1, optional2 } = additionalSettings;
 // console.log("Additional settings",  optional1, optional2 , "=======>");
 
-function MapChannels() {
+function MapChannels({stepperValue, setStepperValue}) {
   const [values, setValues] = useState({
     primaryChannel: "",
     refChannel: "",
@@ -36,6 +36,11 @@ function MapChannels() {
     optional2,
   });
   const [isChecked, setIsChecked] = useState(false);
+
+
+// useEffect(()=>{
+//   setStepperValue(1);
+// }, [])
 
   console.log("additional options", additionalOptions);
   return (
