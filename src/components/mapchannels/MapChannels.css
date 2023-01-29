@@ -103,3 +103,20 @@
 
   color: #0f0f0f;
 }
+.additional-backupChannel-container{
+  width: 100%;
+  height: 249px;
+  overflow: scroll;
+  border: 5px solid greenyellow;
+}
+
+.backup-channels{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1rem auto;
+}
+.backup-channels-btn{
+  align-items: center;
+}
