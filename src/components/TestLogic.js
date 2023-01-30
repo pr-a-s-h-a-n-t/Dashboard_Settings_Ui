@@ -10,18 +10,107 @@ import MenuItem from "@mui/material/MenuItem";
 // import { useForm, Controller } from "react-hook-form";
 import InputLabel from "@mui/material/InputLabel";
 import Select from "@mui/material/Select";
-import {useEffect} from "react";
+import { useEffect } from "react";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 export const primaryChannelOption = [
-  { id: 1, value: "", label: "Select"},
-  { id: 2, value: "bp1", label: "Bp1" },
-  { id: 3, value: "cp1", label: "Cp1" },
+  { value: "", label: "Select" },
+  {
+    value: "b1",
+    label: "B1",
+  },
+  {
+    value: "c1",
+    label: "C1",
+  },
+  {
+    value: "d1",
+    label: "D1",
+  },
+  {
+    value: "e1",
+    label: "E1",
+  },
+  {
+    value: "f1",
+    label: "F1",
+  },
+  {
+    value: "g1",
+    label: "G1",
+  },
+  {
+    value: "h1",
+    label: "H1",
+  },
+  {
+    value: "i1",
+    label: "I1",
+  },
+  {
+    value: "j1",
+    label: "J1",
+  },
+  {
+    value: "k1",
+    label: "K1",
+  },
+  {
+    value: "l1",
+    label: "L1",
+  },
 ];
 
 export const referenceChannel = [
   { id: 1, value: "", label: "N/A" },
-  { id: 2, value: "ar1", label: "Ar1" },
-  { id: 3, value: "br1", label: "Br1" },
+  {
+    value: "a1",
+    label: "A1",
+  },
+  {
+    value: "b1",
+    label: "B1",
+  },
+  {
+    value: "c1",
+    label: "C1",
+  },
+  {
+    value: "d1",
+    label: "D1",
+  },
+  {
+    value: "e1",
+    label: "E1",
+  },
+  {
+    value: "f1",
+    label: "F1",
+  },
+  {
+    value: "g1",
+    label: "G1",
+  },
+  {
+    value: "h1",
+    label: "H1",
+  },
+  {
+    value: "i1",
+    label: "I1",
+  },
+  {
+    value: "j1",
+    label: "J1",
+  },
+  {
+    value: "k1",
+    label: "K1",
+  },
+  {
+    value: "l1",
+    label: "L1",
+  },
 ];
 
 const channelData = [
@@ -35,12 +124,16 @@ const channelData = [
   "channel- 8",
   "channel- 9",
   "channel- 10",
-  "channel- 11"
+  "channel- 11",
 ];
+
 export default function TestLogic() {
   const [primaryChannel, setPrimaryChannel] = React.useState("");
   const [refChannel, setrefChannel] = React.useState("");
-  
+  const [addBackupChannel, setAddBackupChannel] = React.useState([]);
+  const [addChannel, setAddChannel] = React.useState([]);
+
+  const test = React.useRef(false);
   const [selectedChannel, setSelectedChannel] = React.useState([
     // {
     //   primaryChannel: "",
@@ -88,46 +181,79 @@ export default function TestLogic() {
     // },
   ]);
 
-  useEffect((()=>{
-    if(channelData  ){
-        const allChannels = channelData.map((ch) =>{
-            return {
-                channelName: ch,
-                primaryChannel: "",
-                refChannel: "",
-            }
-        })
-        setSelectedChannel( allChannels)
+  useEffect(() => {
+    if (channelData) {
+      const allChannels = channelData.map((ch) => {
+        return {
+          channelName: ch,
+          primaryChannel: "",
+          refChannel: "",
+          showBackUp: false,
+          addBackupCh: [""],
+
+        };
+      });
+      // console.log("channelData==", allChannels);
+
+      setSelectedChannel(allChannels);
+      setAddBackupChannel(allChannels);
+      test.current = allChannels;
+
+      // console.log("addbackUpChannels==", addBackupChannel);
+
+      // ---------><-------------//
     }
-  }),[channelData])
+  }, [channelData]);
 
-  useEffect(()=>{
-    console.log("seeee==",selectedChannel);
-  },[selectedChannel])
+  // useEffect(() => {
+  //   // console.log("seeee==", selectedChannel);
+  //   if (channelData) {
+  //     const addBackUpChannels = dd.map((c) => {
+  //       return {
+  //         channel: c,
+  //         show: false,
+  //       };
+  //       setAddBackupChannel(addBackUpChannels);
+  //       console.log("addbackUpChannels==", addBackUpChannels);
+  //     });
+  //   }
+  // }, [ ]);
 
-  const findChannel = (option) => {
-    console.log("====>", option);
+  const findChannel = (channelId) => {
+    console.log("====>", channelId);
+    let data = [...addBackupChannel];
+    data[channelId].showBackUp = !test.current[channelId].backUp;
+    setSelectedChannel(data);
+    console.log("addbackUpChannels==", addBackupChannel);
+    // test.current = addBackupChannel;
+    console.log("ref==", test.current);
   };
-  const [primaryChannel2, setPrimaryChannel2] = React.useState("");
-  const [refChannel2, setrefChannel2] = React.useState("");
+  // const [primaryChannel2, setPrimaryChannel2] = React.useState("");
+  // const [refChannel2, setrefChannel2] = React.useState("");
 
-  const handleChangePrimary = (value,index) => {
+  const handleChangePrimary = (value, index) => {
     // setPrimaryChannel(event.target.value);
     let data = [...selectedChannel];
     data[index].primaryChannel = value;
     setSelectedChannel(data);
-    
-    // console.log(value,index);
 
+    // console.log(value,index);
   };
-  const handleChangeref = (value,index) => {
+  const handleChangeref = (value, index) => {
     // setrefChannel(event.target.value);
     // console.log(value,index);
     let data = [...selectedChannel];
     data[index].refChannel = value;
     setSelectedChannel(data);
-};
+  };
+const addChannels = (index) =>{
+  console.log("added " ,index);
 
+  // let data = [...selectedChannel];
+  //   data[index].addBackupCh.push = "+1";
+  //   setAddChannel(data);
+  //   console.log("added channels===>", addChannel);
+}
   return (
     <Box sx={{ m: 8 }}>
       <Grid container spacing={1}>
@@ -164,7 +290,7 @@ export default function TestLogic() {
               >
                 <Select
                   value={ch.primaryChannel}
-                  onChange={(e) => handleChangePrimary(e.target.value,id)}
+                  onChange={(e) => handleChangePrimary(e.target.value, id)}
                   displayEmpty
                   fullWidth
                   inputProps={{
@@ -189,7 +315,7 @@ export default function TestLogic() {
               >
                 <Select
                   value={ch.refChannel}
-                  onChange={(e) => handleChangeref(e.target.value,id)}
+                  onChange={(e) => handleChangeref(e.target.value, id)}
                   displayEmpty
                   fullWidth
                   inputProps={{
@@ -222,6 +348,106 @@ export default function TestLogic() {
                   + Add Backup Channels
                 </Button>
               </Grid>
+              {test.current[id].showBackUp === true ? (
+                <Grid
+                  container
+                  // xs={12}
+                  sx={{
+                    border: "2px solid aquamarine",
+                    background: "silver",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    //  margin: "auto"
+                  }}
+                >
+                  <Grid container>
+                    <Grid
+                      item
+                      xs={5}
+                      sx={{
+                        border: "2px solid red",
+                        background: "silver",
+                      }}
+                    >
+                      <Select
+                        value={ch.primaryChannel}
+                        // onChange={(e) => handleChangePrimary(e.target.value, id)}
+                        displayEmpty
+                        fullWidth
+                        inputProps={{
+                          "aria-label": "Without label",
+                        }}
+                      >
+                        {primaryChannelOption.map((option, i) => (
+                          <MenuItem key={option.value} value={option.value}>
+                            {option.label}
+                          </MenuItem>
+                        ))}
+                      </Select>
+                    </Grid>
+                    <Grid
+                      item
+                      xs={5}
+                      sx={{
+                        border: "2px solid red",
+                        background: "silver",
+                        //  margin: "auto"
+                      }}
+                    >
+                      <Select
+                        value={ch.refChannel}
+                        // onChange={(e) => handleChangeref(e.target.value, id)}
+                        displayEmpty
+                        fullWidth
+                        inputProps={{
+                          "aria-label": "Without label",
+                        }}
+                      >
+                        {referenceChannel.map((option) => (
+                          <MenuItem key={option.value} value={option.value}>
+                            {option.label}
+                          </MenuItem>
+                        ))}
+                      </Select>
+                    </Grid>
+                    <Grid
+                      item
+                      xs={2}
+                      sx={{
+                  border: "2px solid red",
+                  background: "silver",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+                    >
+                      <Button onClick={() => {addChannels("-1")}}>
+                        {" "}
+                        <DeleteIcon />
+                        Delete{" "}
+                      </Button>
+                    </Grid>
+                  </Grid>
+                  <Grid container>
+                    <Grid
+                      xs={12}
+                      sx={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                      item
+                    >
+                      <Button
+                      onClick={() => {addChannels(id)}}
+                      >+ Add backup channels</Button>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              ) : (
+                ""
+              )}
             </Grid>
           );
         })}
