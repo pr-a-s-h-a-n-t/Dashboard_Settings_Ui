@@ -134,52 +134,7 @@ export default function TestLogic() {
   const [addChannel, setAddChannel] = React.useState([]);
 
   const test = React.useRef(false);
-  const [selectedChannel, setSelectedChannel] = React.useState([
-    // {
-    //   primaryChannel: "",
-    //   refChannel: "",
-    // },
-    // {
-    //   primaryChannel: "",
-    //   refChannel: "",
-    // },
-    // channel3: {
-    //   primaryChannel: "",
-    //   refChannel:"",
-    // },
-    // channel4: {
-    //   primaryChannel: "",
-    //   refChannel:"",
-    // },
-    // channel5: {
-    //   primaryChannel: "",
-    //   refChannel:"",
-    // },
-    // channel6: {
-    //   primaryChannel: "",
-    //   refChannel:"",
-    // },
-    // channel7: {
-    //   primaryChannel: "",
-    //   refChannel:"",
-    // },
-    // channel8: {
-    //   primaryChannel: "",
-    //   refChannel:"",
-    // },
-    // channel9: {
-    //   primaryChannel: "",
-    //   refChannel:"",
-    // },
-    // channel10: {
-    //   primaryChannel: "",
-    //   refChannel:"",
-    // },
-    // channel11: {
-    //   primaryChannel: "",
-    //   refChannel:"",
-    // },
-  ]);
+  const [selectedChannel, setSelectedChannel] = React.useState([]);
 
   useEffect(() => {
     if (channelData) {
@@ -189,14 +144,14 @@ export default function TestLogic() {
           primaryChannel: "",
           refChannel: "",
           showBackUp: false,
-          addBackupCh: [""],
-
+          // addBackupCh: [""],
         };
       });
       // console.log("channelData==", allChannels);
 
       setSelectedChannel(allChannels);
       setAddBackupChannel(allChannels);
+      setAddChannel(allChannels);
       test.current = allChannels;
 
       // console.log("addbackUpChannels==", addBackupChannel);
@@ -205,31 +160,18 @@ export default function TestLogic() {
     }
   }, [channelData]);
 
-  // useEffect(() => {
-  //   // console.log("seeee==", selectedChannel);
-  //   if (channelData) {
-  //     const addBackUpChannels = dd.map((c) => {
-  //       return {
-  //         channel: c,
-  //         show: false,
-  //       };
-  //       setAddBackupChannel(addBackUpChannels);
-  //       console.log("addbackUpChannels==", addBackUpChannels);
-  //     });
-  //   }
-  // }, [ ]);
-
   const findChannel = (channelId) => {
     console.log("====>", channelId);
     let data = [...addBackupChannel];
-    data[channelId].showBackUp = !test.current[channelId].backUp;
+    data[channelId].showBackUp = !test.current[channelId].showBackUp;
     setSelectedChannel(data);
     console.log("addbackUpChannels==", addBackupChannel);
-    // test.current = addBackupChannel;
-    console.log("ref==", test.current);
+    test.current = addBackupChannel;
+    console.log(
+      `${test.current[channelId].channelName} toggle drawer`,
+      test.current[channelId].showBackUp
+    );
   };
-  // const [primaryChannel2, setPrimaryChannel2] = React.useState("");
-  // const [refChannel2, setrefChannel2] = React.useState("");
 
   const handleChangePrimary = (value, index) => {
     // setPrimaryChannel(event.target.value);
@@ -246,14 +188,15 @@ export default function TestLogic() {
     data[index].refChannel = value;
     setSelectedChannel(data);
   };
-const addChannels = (index) =>{
-  console.log("added " ,index);
+  const addChannels = (index) => {
+    // console.log("added " ,index);
 
-  // let data = [...selectedChannel];
-  //   data[index].addBackupCh.push = "+1";
-  //   setAddChannel(data);
-  //   console.log("added channels===>", addChannel);
-}
+    let data = [...addChannel];
+    test.current[index].addBackupCh.push = "+1";
+    data[index].addBackupCh.push = "+1";
+    setAddChannel(data);
+    console.log("added channels===>", addChannel);
+  };
   return (
     <Box sx={{ m: 8 }}>
       <Grid container spacing={1}>
@@ -415,14 +358,18 @@ const addChannels = (index) =>{
                       item
                       xs={2}
                       sx={{
-                  border: "2px solid red",
-                  background: "silver",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
+                        border: "2px solid red",
+                        background: "silver",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
                     >
-                      <Button onClick={() => {addChannels("-1")}}>
+                      <Button
+                        onClick={() => {
+                          addChannels("-1");
+                        }}
+                      >
                         {" "}
                         <DeleteIcon />
                         Delete{" "}
@@ -440,8 +387,12 @@ const addChannels = (index) =>{
                       item
                     >
                       <Button
-                      onClick={() => {addChannels(id)}}
-                      >+ Add backup channels</Button>
+                        onClick={() => {
+                          addChannels(id);
+                        }}
+                      >
+                        + Add backup channels
+                      </Button>
                     </Grid>
                   </Grid>
                 </Grid>
