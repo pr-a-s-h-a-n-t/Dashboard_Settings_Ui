@@ -136,6 +136,8 @@ export default function TestLogic() {
   const test = React.useRef(false);
   const [selectedChannel, setSelectedChannel] = React.useState([]);
 
+  const [backupChannelCount, setBackupChannelCount] = React.useState(0);
+
   useEffect(() => {
     if (channelData) {
       const allChannels = channelData.map((ch) => {
@@ -144,7 +146,7 @@ export default function TestLogic() {
           primaryChannel: "",
           refChannel: "",
           showBackUp: false,
-          // addBackupCh: [""],
+          addBackupCh: [],
         };
       });
       // console.log("channelData==", allChannels);
@@ -188,15 +190,80 @@ export default function TestLogic() {
     data[index].refChannel = value;
     setSelectedChannel(data);
   };
-  const addChannels = (index) => {
-    // console.log("added " ,index);
 
-    let data = [...addChannel];
-    test.current[index].addBackupCh.push = "+1";
-    data[index].addBackupCh.push = "+1";
+  const addChannels = (index) => {
+    console.log(`${test.current[index].channelName}  index`, index);
+
+    let data = [...test.current[index].addBackupCh];
+    test.current[index].addBackupCh = [
+      ...data,
+      {
+        // backupChannelNumber:" ",
+        primaryChannel: "",
+        refChannel: "",
+      },
+    ];
     setAddChannel(data);
-    console.log("added channels===>", addChannel);
+    // console.log("added channels===>", addChannel);
+    console.log(
+      `${test.current[index].channelName} added Backup Channels`,
+      test.current[index].addBackupCh.length
+    );
+
+    console.log("added Backup Channels", test.current);
   };
+
+  const handleChangePrimaryBackUpChannel = (value, index, id) => {
+    // let data = [...test.current[index].addBackupCh];
+    let data = [...selectedChannel];
+    // data[id].addBackupCh[index].backupChannelNumber = index + 1;
+    data[id].addBackupCh[index].primaryChannel = value;
+    setSelectedChannel(data);
+    console.log(
+      `Backup Channels- ${data[id].addBackupCh[index].backupChannelNumber} primaryChannel Value    `,
+      data[id].addBackupCh[index].primaryChannel
+    );
+  };
+
+  const handleChangerefBackUpChannel = (value, index, id) => {
+    let data = [...selectedChannel];
+    // data[id].addBackupCh[index].backupChannelNumber = index + 1;
+    data[id].addBackupCh[index].refChannel = value;
+    setSelectedChannel(data);
+    console.log(
+      ` Backup Channels- ${data[id].addBackupCh[index].backupChannelNumber} refChannel Value    `,
+      data[id].addBackupCh[index].refChannel
+    );
+  };
+
+  const handleRemoveBackUpChannels = (index, id) => {
+    let data = [...selectedChannel];
+    console.log(
+      "array before deleting element  ",
+      test.current[id].addBackupCh
+    );
+
+    console.log(
+      "delete this index object",
+      test.current[id].addBackupCh[index]
+    );
+    // delete(test.current[id].addBackupCh[index]);
+    const filterredBackupChannels = test.current[id].addBackupCh.filter(
+      (el, i) => {
+        if (el) {
+          return i !== index;
+        }
+      }
+    );
+    data[id].addBackupCh = filterredBackupChannels;
+    setAddChannel(data);
+    console.log("----------->", filterredBackupChannels);
+    console.log(
+      "new array after deleting element  ",
+      test.current[id].addBackupCh
+    );
+  };
+
   return (
     <Box sx={{ m: 8 }}>
       <Grid container spacing={1}>
@@ -288,7 +355,9 @@ export default function TestLogic() {
                   onClick={() => findChannel(id)}
                   sx={{}}
                 >
-                  + Add Backup Channels
+                  {addBackupChannel[id].showBackUp === true
+                    ? `hide Backup Channels (${backupChannelCount})`
+                    : "Add Backup Channels"}
                 </Button>
               </Grid>
               {test.current[id].showBackUp === true ? (
@@ -301,81 +370,115 @@ export default function TestLogic() {
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
-                    //  margin: "auto"
+                    margin: "5px",
                   }}
                 >
-                  <Grid container>
-                    <Grid
-                      item
-                      xs={5}
-                      sx={{
-                        border: "2px solid red",
-                        background: "silver",
-                      }}
-                    >
-                      <Select
-                        value={ch.primaryChannel}
-                        // onChange={(e) => handleChangePrimary(e.target.value, id)}
-                        displayEmpty
-                        fullWidth
-                        inputProps={{
-                          "aria-label": "Without label",
-                        }}
-                      >
-                        {primaryChannelOption.map((option, i) => (
-                          <MenuItem key={option.value} value={option.value}>
-                            {option.label}
-                          </MenuItem>
-                        ))}
-                      </Select>
-                    </Grid>
-                    <Grid
-                      item
-                      xs={5}
-                      sx={{
-                        border: "2px solid red",
-                        background: "silver",
-                        //  margin: "auto"
-                      }}
-                    >
-                      <Select
-                        value={ch.refChannel}
-                        // onChange={(e) => handleChangeref(e.target.value, id)}
-                        displayEmpty
-                        fullWidth
-                        inputProps={{
-                          "aria-label": "Without label",
-                        }}
-                      >
-                        {referenceChannel.map((option) => (
-                          <MenuItem key={option.value} value={option.value}>
-                            {option.label}
-                          </MenuItem>
-                        ))}
-                      </Select>
-                    </Grid>
-                    <Grid
-                      item
-                      xs={2}
-                      sx={{
-                        border: "2px solid red",
-                        background: "silver",
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                      }}
-                    >
-                      <Button
-                        onClick={() => {
-                          addChannels("-1");
-                        }}
-                      >
-                        {" "}
-                        <DeleteIcon />
-                        Delete{" "}
-                      </Button>
-                    </Grid>
-                  </Grid>
+                  {test.current[id].addBackupCh &&
+                  test.current[id].addBackupCh.length > 0
+                    ? test.current[id].addBackupCh.map((ch, index) => {
+                        return (
+                          <Grid
+                            container
+                            margin="auto"
+                            sx={{
+                              border: "2px solid red",
+                              background: "silver",
+                            }}
+                            key={index}
+                          >
+                            <Grid
+                              item
+                              xs={5}
+                              sx={{
+                                border: "2px solid red",
+                                background: "silver",
+                              }}
+                            >
+                              <Select
+                                value={ch.primaryChannel}
+                                onChange={(e) =>
+                                  handleChangePrimaryBackUpChannel(
+                                    e.target.value,
+                                    index,
+                                    id
+                                  )
+                                }
+                                displayEmpty
+                                fullWidth
+                                inputProps={{
+                                  "aria-label": "Without label",
+                                }}
+                              >
+                                {primaryChannelOption.map((option, i) => (
+                                  <MenuItem
+                                    key={option.value}
+                                    value={option.value}
+                                  >
+                                    {option.label}
+                                  </MenuItem>
+                                ))}
+                              </Select>
+                            </Grid>
+                            <Grid
+                              item
+                              xs={5}
+                              sx={{
+                                border: "2px solid red",
+                                background: "silver",
+                                //  margin: "auto"
+                              }}
+                            >
+                              <Select
+                                value={ch.refChannel}
+                                onChange={(e) =>
+                                  handleChangerefBackUpChannel(
+                                    e.target.value,
+                                    index,
+                                    id
+                                  )
+                                }
+                                displayEmpty
+                                fullWidth
+                                inputProps={{
+                                  "aria-label": "Without label",
+                                }}
+                              >
+                                {referenceChannel.map((option) => (
+                                  <MenuItem
+                                    key={option.value}
+                                    value={option.value}
+                                  >
+                                    {option.label}
+                                  </MenuItem>
+                                ))}
+                              </Select>
+                            </Grid>
+                            <Grid
+                              item
+                              xs={2}
+                              sx={{
+                                border: "2px solid red",
+                                background: "silver",
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                              }}
+                            >
+                              <Button
+                                onClick={() => {
+                                  handleRemoveBackUpChannels(index, id);
+                                  // console.log(`channelId: ${id} --> channel index: ${index}`);
+                                }}
+                              >
+                                {" "}
+                                <DeleteIcon />
+                                Delete{" "}
+                              </Button>
+                            </Grid>
+                          </Grid>
+                        );
+                      })
+                    : ""}
                   <Grid container>
                     <Grid
                       xs={12}
