@@ -439,7 +439,8 @@ export default function TestLogic() {
                                   //   setValues({ ...values, primaryChannel: data })
                                   // }
                                   onChange={(data) =>
-                                    handleChangePrimary(data, id)
+                                    handleChangePrimaryBackUpChannel(data, index,
+                                      id)
                                   }
                                 />
                                 {/* <Select
@@ -482,7 +483,8 @@ export default function TestLogic() {
                                   // onChange={(data) =>
                                   //   setValues({ ...values, primaryChannel: data })
                                   // }
-                                  onChange={(data) => handleChangeref(data, id)}
+                                  onChange={(data) =>  handleChangerefBackUpChannel (data, index,
+                                      id)}
                                 />
                                 {/* <Select
                                   value={ch.refChannel}
