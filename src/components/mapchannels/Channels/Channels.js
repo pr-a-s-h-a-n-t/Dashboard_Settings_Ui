@@ -16,18 +16,18 @@ import {
 } from "../../../redux/actionCreater/Action";
 import { useDispatch, useSelector } from "react-redux";
 import CustomDropDown from "../../common/customdropdown/CustomDropDown";
-import { primaryChannelOption, referenceChannelOption } from "../../common/JsonData/ChannelOptions";
+import {
+  primaryChannelOption,
+  referenceChannelOption,
+} from "../../common/JsonData/ChannelOptions";
 
 export default function Channels() {
-
-  
   const [backupChannelCount, setBackupChannelCount] = React.useState(0);
 
   const dispatch = useDispatch();
   const AllChannels = useSelector((state) => state.AllChannels);
 
   const { allChannels } = AllChannels;
- 
 
   useEffect(() => {
     if (ChannelsData.channels) {
@@ -70,6 +70,10 @@ export default function Channels() {
 
   const handleRemoveBackUpChannels = (index, id) => {
     dispatch(DeleteBackupChannels(index, id));
+  };
+
+  const editChannels = (index, id) => {
+    console.log("editChannels", index, id);
   };
 
   return (
@@ -128,27 +132,51 @@ export default function Channels() {
                     onChange={(data) => handleChangeref(data, id)}
                   />
                 </Grid>
-                <Grid
-                  item
-                  xs={3}
-                  sx={{
-                    border: "2px solid red",
-                    background: "silver",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <Button
-                    variant="contained"
-                    onClick={() => findChannel(id)}
-                    sx={{}}
-                  >
-                    {allChannels[id].showBackUp === true
-                      ? `hide Backup Channels (${allChannels[id].backupChannels.length})`
-                      : "Add Backup Channels"}
-                  </Button>
-                </Grid>
+                {/* <Grid container> */}
+                  {allChannels ? (
+                    <Grid
+                      item
+                      xs={2}
+                      sx={{
+                        border: "2px solid red",
+                        background: "silver",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    >
+                      <Button
+                        variant="contained"
+                        onClick={() => findChannel(id)}
+                        sx={{}}
+                      >
+                        {allChannels[id].showBackUp === true
+                          ? `hide Backup Channels (${allChannels[id].backupChannels.length})`
+                          : "Add Backup Channels"}
+                      </Button>
+                    </Grid>
+                  ) : (
+                    <Grid
+                      item
+                      xs={3}
+                      sx={{
+                        border: "2px solid red",
+                        background: "silver",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    >
+                      <Button
+                        variant="contained"
+                        onClick={() => editChannels(id)}
+                        sx={{}}
+                      >
+                        Edit Channel
+                      </Button>
+                    </Grid>
+                  )}
+                {/* </Grid> */}
                 {allChannels[id].showBackUp === true ? (
                   <Grid
                     container
@@ -181,7 +209,6 @@ export default function Channels() {
                                 sx={{
                                   border: "2px solid red",
                                   background: "silver",
-                               
                                 }}
                               >
                                 <CustomDropDown
