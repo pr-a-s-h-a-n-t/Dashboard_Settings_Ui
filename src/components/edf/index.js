@@ -16,8 +16,8 @@ function Upload() {
     setEdf(file)
     // inputRef.current = edf;
     console.log("edf", edf, "==============>",inputRef.current);
-    let edfd = "dataUploaded";
-    localStorage.setItem( "edf", edfd);
+    // let edfd = "dataUploaded";
+    // localStorage.setItem( "edf", edfd);
     //ref(storage,'path to file',file,name)
     
     //uploadBytesResumable(storage-Ref,file)

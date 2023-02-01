@@ -125,7 +125,7 @@ export const referenceChannel = [
   },
 ];
 
-export default function TestLogic() {
+export default function Channels() {
   const [primaryChannel, setPrimaryChannel] = React.useState("");
   const [refChannel, setrefChannel] = React.useState("");
   const [addBackupChannel, setAddBackupChannel] = React.useState([]);

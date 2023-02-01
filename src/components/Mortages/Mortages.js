@@ -7,19 +7,19 @@ import BottomNav from "../common/BottomNav";
 import userLogo from "../../assets/topheading/userLogo.png";
 import Upload from "../edf/index";
 import MapChannels from "../mapchannels";
+import TestLogic from "../TestLogic";
 
 function Mortages() {
-
-  const[stepperValue, setStepperValue] = useState(0)
-const checkedf = () =>{
- let temp =  localStorage.getItem("edf")
- if(temp === "dataUploaded"){
-  setStepperValue(1);
- }
-}
-  useEffect(()=>{
-checkedf();
-  },[])
+  const [stepperValue, setStepperValue] = useState(0);
+  // const checkedf = () => {
+  //   let temp = localStorage.getItem("edf");
+  //   if (temp === "dataUploaded") {
+  //     setStepperValue(1);
+  //   }
+  // };
+  useEffect(() => {
+    // checkedf();
+  }, []);
 
   return (
     <div className="udf-container">
@@ -54,24 +54,27 @@ checkedf();
       </div>
       <div className="steppercontainer">
         <Stepper
-        setStepperValue={setStepperValue}
-          stepperValue = {stepperValue}
-
-         />
+          setStepperValue={setStepperValue}
+          stepperValue={stepperValue}
+        />
       </div>
       {/* </Grid> */}
       {/* <Grid item  >*/}
       <div className="Upload-container">
-        { stepperValue === 0 ? <Upload /> 
-        : 
-        <MapChannels 
-          setStepperValue={setStepperValue}
-          stepperValue = {stepperValue}
-
-        />}
+        {stepperValue === 0 ? (
+          <Upload />
+        ) : (
+          <MapChannels
+            setStepperValue={setStepperValue}
+            stepperValue={stepperValue}
+          />
+        )}
       </div>
       <div className="bottomnavbar-container">
-        <BottomNav />
+        <BottomNav
+          setStepperValue={setStepperValue}
+          stepperValue={stepperValue}
+        />
       </div>
       {/*   </Grid>  */}
       {/* </Grid> */}

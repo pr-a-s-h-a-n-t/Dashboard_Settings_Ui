@@ -5,8 +5,8 @@ import Mortages from "./Mortages/Mortages";
 function AllComponents() {
   return (
     <div>
-      {/* <Mortages /> */}
-      <TestLogic />
+      <Mortages />
+      {/* <TestLogic /> */}
     </div>
   );
 }
