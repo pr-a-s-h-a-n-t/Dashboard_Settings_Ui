@@ -6,41 +6,30 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
-    },
-  },
-};
+// const ITEM_HEIGHT = 48;
+// const ITEM_PADDING_TOP = 8;
+// const MenuProps = {
+//   PaperProps: {
+//     style: {
+//       maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+//       width: 250,
+//     },
+//   },
+// };
 
-const names = [
-  "Oliver Hansen",
-  "Van Henry",
-  "April Tucker",
-  "Ralph Hubbard",
-  "Omar Alexander",
-  "Carlos Abbott",
-  "Miriam Wagner",
-  "Bradley Wilkerson",
-  "Virginia Andrews",
-  "Kelly Snyder",
-];
+ 
 
-function getStyles(name, personName, theme) {
-  return {
-    fontWeight:
-      personName.indexOf(name) === -1
-        ? theme.typography.fontWeightRegular
-        : theme.typography.fontWeightMedium,
-  };
-}
+// function getStyles(name, personName, theme) {
+//   return {
+//     fontWeight:
+//       personName.indexOf(name) === -1
+//         ? theme.typography.fontWeightRegular
+//         : theme.typography.fontWeightMedium,
+//   };
+// }
 
-function CustomDropDown({ dropDownList, val, onChange, required, disabled }) {
-  const theme = useTheme();
+function CustomDropDown({ dropDownList, value, onChange,  disabled }) {
+  // const theme = useTheme();
 
   const handleChange = (event) => {
     onChange(event.target.value);
@@ -51,17 +40,21 @@ function CustomDropDown({ dropDownList, val, onChange, required, disabled }) {
       <FormControl sx={{ width: "100%" }}>
         <Select
           fullWidth
-          size="small"
-          label="Select"
-          sx={{
-            width: "274px",
-            height: "40px",
-            border: "1px solid black",
-          }}
+          displayEmpty
+          
+          // label="Select"
+          // sx={{
+          //   width: "274px",
+          //   height: "40px",
+          //   border: "1px solid black",
+          // }}
           // disabled={disabled}
-          required={required}
-          id="demo-simple-select"
-          value={val}
+          // required={required}
+          id="simple-select"
+          inputProps={{
+                      "aria-label": "Without label",
+                    }}
+          value={value}
           onChange={handleChange}
         >
           {dropDownList.map((item, id) => (

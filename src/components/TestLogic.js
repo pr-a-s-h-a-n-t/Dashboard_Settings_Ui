@@ -24,7 +24,7 @@ import {
   UpdateBackupChannelsReferenceChannels,
 } from "../redux/actionCreater/Action";
 import { useDispatch, useSelector } from "react-redux";
-
+import CustomDropDown from "./common/customdropdown/CustomDropDown";
 export const primaryChannelOption = [
   { value: "", label: "Select" },
   {
@@ -124,20 +124,6 @@ export const referenceChannel = [
     label: "L1",
   },
 ];
-
-// const channelData = [
-//   "channel- 1",
-//   "channel- 2",
-//   "channel- 3",
-//   "channel- 4",
-//   "channel- 5",
-//   "channel- 6",
-//   "channel- 7",
-//   "channel- 8",
-//   "channel- 9",
-//   "channel- 10",
-//   "channel- 11",
-// ];
 
 export default function TestLogic() {
   const [primaryChannel, setPrimaryChannel] = React.useState("");
@@ -333,7 +319,15 @@ export default function TestLogic() {
                     background: "silver",
                   }}
                 >
-                  <Select
+                  <CustomDropDown
+                    dropDownList={primaryChannelOption}
+                    value={ch.primaryChannel}
+                    // onChange={(data) =>
+                    //   setValues({ ...values, primaryChannel: data })
+                    // }
+                    onChange={(data) => handleChangePrimary(data, id)}
+                  />
+                  {/* <Select
                     value={ch.primaryChannel}
                     onChange={(e) => handleChangePrimary(e.target.value, id)}
                     displayEmpty
@@ -347,7 +341,7 @@ export default function TestLogic() {
                         {option.label}
                       </MenuItem>
                     ))}
-                  </Select>
+                  </Select> */}
                 </Grid>
                 <Grid
                   item
@@ -358,7 +352,15 @@ export default function TestLogic() {
                     //  margin: "auto"
                   }}
                 >
-                  <Select
+                  <CustomDropDown
+                    dropDownList={referenceChannel}
+                    value={ch.refChannel}
+                    // onChange={(data) =>
+                    //   setValues({ ...values, primaryChannel: data })
+                    // }
+                    onChange={(data) => handleChangeref(data, id)}
+                  />
+                  {/* <Select
                     value={ch.refChannel}
                     onChange={(e) => handleChangeref(e.target.value, id)}
                     displayEmpty
@@ -372,7 +374,7 @@ export default function TestLogic() {
                         {option.label}
                       </MenuItem>
                     ))}
-                  </Select>
+                  </Select> */}
                 </Grid>
                 <Grid
                   item
@@ -429,7 +431,18 @@ export default function TestLogic() {
                                   background: "silver",
                                 }}
                               >
-                                <Select
+                                {" "}
+                                <CustomDropDown
+                                  dropDownList={primaryChannelOption}
+                                  value={ch.primaryChannel}
+                                  // onChange={(data) =>
+                                  //   setValues({ ...values, primaryChannel: data })
+                                  // }
+                                  onChange={(data) =>
+                                    handleChangePrimary(data, id)
+                                  }
+                                />
+                                {/* <Select
                                   value={ch.primaryChannel}
                                   onChange={(e) =>
                                     handleChangePrimaryBackUpChannel(
@@ -452,7 +465,7 @@ export default function TestLogic() {
                                       {option.label}
                                     </MenuItem>
                                   ))}
-                                </Select>
+                                </Select> */}
                               </Grid>
                               <Grid
                                 item
@@ -463,7 +476,15 @@ export default function TestLogic() {
                                   //  margin: "auto"
                                 }}
                               >
-                                <Select
+                                <CustomDropDown
+                                  dropDownList={referenceChannel}
+                                  value={ch.refChannel}
+                                  // onChange={(data) =>
+                                  //   setValues({ ...values, primaryChannel: data })
+                                  // }
+                                  onChange={(data) => handleChangeref(data, id)}
+                                />
+                                {/* <Select
                                   value={ch.refChannel}
                                   onChange={(e) =>
                                     handleChangerefBackUpChannel(
@@ -486,7 +507,7 @@ export default function TestLogic() {
                                       {option.label}
                                     </MenuItem>
                                   ))}
-                                </Select>
+                                </Select> */}
                               </Grid>
                               <Grid
                                 item
