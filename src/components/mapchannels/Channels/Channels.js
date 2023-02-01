@@ -3,7 +3,7 @@ import * as React from "react";
 import { Typography, Button, Grid, Box } from "@mui/material";
 import { useEffect } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { ChannelsData } from "../../../schema";
+import { ChannelsData } from "../../common/JsonData/schema";
 import {
   FetchAllChannels,
   UpdatePrimaryChannels,
@@ -16,7 +16,7 @@ import {
 } from "../../../redux/actionCreater/Action";
 import { useDispatch, useSelector } from "react-redux";
 import CustomDropDown from "../../common/customdropdown/CustomDropDown";
-import { primaryChannelOption, referenceChannelOption } from "../../randomdata";
+import { primaryChannelOption, referenceChannelOption } from "../../common/JsonData/ChannelOptions";
 
 export default function Channels() {
 

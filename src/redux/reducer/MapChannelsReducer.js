@@ -1,4 +1,4 @@
-let allChannels = [];
+// let allChannels = [];
 
 export const MapChannelsReducer = (state = [], action) => {
   //   console.log(action.payload, "action .payload for all channels");

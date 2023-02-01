@@ -1,11 +1,7 @@
-
-
-
+// Random String options for primary and reference channels.
 
 export const primaryChannelOption = [
-  { value: "",
-   label: "Select"
-   },
+  { value: "", label: "Select" },
   {
     value: "Pa1",
     label: "PA1",
@@ -57,16 +53,14 @@ export const primaryChannelOption = [
 ];
 
 export const referenceChannelOption = [
-  { value: "", 
-  label: "N/A"
- },
+  { value: "", label: "N/A" },
   {
-    value: "ra1",
-    label: "rA1",
+    value: "Ra1",
+    label: "RA1",
   },
   {
-    value: "rb1",
-    label: "rB1",
+    value: "Rb1",
+    label: "RB1",
   },
   {
     value: "Rc1",

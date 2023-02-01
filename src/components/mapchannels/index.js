@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./MapChannels.css";
-import { ChannelsData } from "../../schema";
+import { ChannelsData } from "../common/JsonData/schema";
 import CustomDropDown from "../../components/common/customdropdown/CustomDropDown";
-import { primaryChannel, referenceChannel } from "../randomdata/index";
+import { primaryChannel, referenceChannel } from "../common/JsonData/ChannelOptions";
 import { Button } from "@mui/material";
 
 // --------------------------

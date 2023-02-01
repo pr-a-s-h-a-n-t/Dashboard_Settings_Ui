@@ -7,21 +7,21 @@ import {
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 
-import { MapChannelsReducer } from "../reducer/userReducer";
+import { MapChannelsReducer } from "./reducer/MapChannelsReducer";
 
 const reducer = combineReducers({
-  // this combines all the reducers
+  // combines all the reducers
 
   AllChannels: MapChannelsReducer,
 });
 
-//step2. create state of application.
+//state of application.
 const initialState = {};
 
-//step3. create middleware
+//middleware
 const middleware = [thunk];
 
-// create store;
+// store;
 const store = createStore(
   reducer,
   initialState,
