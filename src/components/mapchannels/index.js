@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import "./MapChannels.css";
 import { ChannelsData } from "../common/JsonData/schema";
 import CustomDropDown from "../../components/common/customdropdown/CustomDropDown";
-import { primaryChannel, referenceChannel } from "../common/JsonData/ChannelOptions";
+import {
+  primaryChannel,
+  referenceChannel,
+} from "../common/JsonData/ChannelOptions";
 import { Button } from "@mui/material";
 
 // --------------------------
@@ -30,10 +33,8 @@ const columns = [
 ];
 
 let additionalSettings = ChannelsData.optionals[0];
-// console.log("Additional settings", additionalSettings);
 
 const { optional1, optional2 } = additionalSettings;
-// console.log("Additional settings",  optional1, optional2 , "=======>");
 
 function MapChannels({ stepperValue, setStepperValue }) {
   const [values, setValues] = useState({
@@ -47,8 +48,6 @@ function MapChannels({ stepperValue, setStepperValue }) {
   });
 
   const [isChecked, setIsChecked] = useState(false);
-
-  // console.log(addBackUpChannelSelect, "=======>");
 
   return (
     <div className="MapChannels-container">
@@ -69,7 +68,9 @@ function MapChannels({ stepperValue, setStepperValue }) {
             })}
           </div>
           <div className="table-row-container">
-            <Channels />
+            <div>
+              <Channels />
+            </div>
 
             <div className="additional-setting-contianer">
               <div className="additional-setting-contianer-item">

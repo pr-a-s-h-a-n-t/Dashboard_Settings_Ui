@@ -8,7 +8,7 @@ function BottomBav({setStepperValue, stepperValue}) {
 const NavigateToNextPage = () =>{
   if(  stepperValue === 0){
     setStepperValue(stepperValue + 1);
-    console.log("setStepperValue", stepperValue)
+  
 
   }
   else if( stepperValue === 1){
@@ -20,7 +20,7 @@ const NavigateToNextPage = () =>{
 const NavigateToPreviousPage = () =>{
   if(  stepperValue === 2){
     setStepperValue(stepperValue - 1);
-    console.log("setStepperValue", stepperValue)
+ 
 
   }
   else if( stepperValue === 1){

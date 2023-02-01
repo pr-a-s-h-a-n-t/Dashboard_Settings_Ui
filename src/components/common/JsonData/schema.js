@@ -21,7 +21,3 @@ export const ChannelsData = {
     },
   ],
 };
-
-// const txt = '{"name":"John", "age":30, "city":"New York"}'
-// const obj = JSON.parse(channel);
-// console.log("converted to object====>", obj);

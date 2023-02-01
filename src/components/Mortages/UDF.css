@@ -8,41 +8,7 @@
   max-width: 80%;
   margin-left: 300px;
 }
-.topheadingcontainer {
-  max-width: 80%;
-  margin-left: 300px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 5.25rem 0 2rem;
-  border: 1px solid red;
-}
-.topheadingcontainer-heading {
-}
-.topheadingcontainer-usercontainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  width: 10.4375rem;
-  height: 1.875rem;
-}
 
-#user {
-  width: 6.3125rem;
-  height: 1.25rem;
-  font-family: "DM Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 21px;
-  letter-spacing: 0.015em;
-  color: #022539;
-  flex: none;
-  order: 1;
-  flex-grow: 0;
-}
 
 .bottomnavbar-container {
   width: 80%;

@@ -27,7 +27,7 @@ export default function Channels() {
   const AllChannels = useSelector((state) => state.AllChannels);
 
   const { allChannels } = AllChannels;
-  // console.log("---->allChannels in testLogic component", allChannels );
+ 
 
   useEffect(() => {
     if (ChannelsData.channels) {
@@ -37,7 +37,7 @@ export default function Channels() {
           primaryChannel: "",
           refChannel: "",
           showBackUp: false,
-          addBackupCh: [],
+          backupChannels: [],
         };
       });
 
@@ -145,7 +145,7 @@ export default function Channels() {
                     sx={{}}
                   >
                     {allChannels[id].showBackUp === true
-                      ? `hide Backup Channels (${backupChannelCount})`
+                      ? `hide Backup Channels (${allChannels[id].backupChannels.length})`
                       : "Add Backup Channels"}
                   </Button>
                 </Grid>
@@ -162,16 +162,16 @@ export default function Channels() {
                       margin: "5px",
                     }}
                   >
-                    {allChannels[id].addBackupCh &&
-                    allChannels[id].addBackupCh.length > 0
-                      ? allChannels[id].addBackupCh.map((ch, index) => {
+                    {allChannels[id].backupChannels &&
+                    allChannels[id].backupChannels.length > 0
+                      ? allChannels[id].backupChannels.map((ch, index) => {
                           return (
                             <Grid
                               container
                               margin="auto"
                               sx={{
                                 border: "2px solid red",
-                                background: "silver",
+                                background: "blue",
                               }}
                               key={index}
                             >
@@ -181,6 +181,7 @@ export default function Channels() {
                                 sx={{
                                   border: "2px solid red",
                                   background: "silver",
+                               
                                 }}
                               >
                                 <CustomDropDown
