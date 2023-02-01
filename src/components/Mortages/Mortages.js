@@ -7,7 +7,7 @@ import BottomNav from "../common/BottomNav";
 import userLogo from "../../assets/topheading/userLogo.png";
 import Upload from "../edf/index";
 import MapChannels from "../mapchannels";
-import TestLogic from "../TestLogic";
+import TestLogic from "../mapchannels/Channels/Channels";
 
 function Mortages() {
   const [stepperValue, setStepperValue] = useState(0);

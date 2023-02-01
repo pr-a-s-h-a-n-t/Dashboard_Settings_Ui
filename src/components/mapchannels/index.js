@@ -11,59 +11,8 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import Channels from "../TestLogic";
+import Channels from "./Channels/Channels";
 //----------------------------
-
-const dropDownListItem = [
-  {
-    value: "a1",
-    label: "A1",
-  },
-  {
-    value: "b1",
-    label: "B1",
-  },
-  {
-    value: "c1",
-    label: "C1",
-  },
-  {
-    value: "d1",
-    label: "D1",
-  },
-  {
-    value: "e1",
-    label: "E1",
-  },
-  {
-    value: "f1",
-    label: "F1",
-  },
-  {
-    value: "g1",
-    label: "G1",
-  },
-  {
-    value: "h1",
-    label: "H1",
-  },
-  {
-    value: "i1",
-    label: "I1",
-  },
-  {
-    value: "j1",
-    label: "J1",
-  },
-  {
-    value: "k1",
-    label: "K1",
-  },
-  {
-    value: "l1",
-    label: "L1",
-  },
-];
 
 const columns = [
   {
@@ -96,23 +45,11 @@ function MapChannels({ stepperValue, setStepperValue }) {
     optional1,
     optional2,
   });
-  let ss;
-  //  ss = document.write(<CustomDropDown /> )
-  const [isChecked, setIsChecked] = useState(false);
-  const [backupChannel, setBackupChannel] = useState(false);
-  const [addBackUpChannel, setAddBackUpChannel] = useState({
-    ss: "",
-  });
-  let temp = [ ];
-  const [addBackUpChannelSelect, setAddBackUpChannelSelect] = useState([
-    ...temp,
-  ]);
-  console.log(addBackUpChannelSelect, "=======>");
-  // useEffect(()=>{
-  //   setStepperValue(1);
-  // }, [])
 
-  console.log("additional options", additionalOptions);
+  const [isChecked, setIsChecked] = useState(false);
+
+  // console.log(addBackUpChannelSelect, "=======>");
+
   return (
     <div className="MapChannels-container">
       <form>
