@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 function BottomBav() {
   const dispatch = useDispatch();
   const StepperValue = useSelector((state) => state.StepperValue);
+  const { steppervalue } = StepperValue;
 
   const NavigateToNextPage = () => {
     dispatch(IncrementStepperValue(StepperValue));
@@ -41,24 +42,24 @@ function BottomBav() {
         </span>
       </div>
       <div className="bottomnav-container-element-end">
-        {StepperValue === 2 ? (
-          <button
-            className="btn"
-            variant="contained"
-            sx={{}}
-            onClick={() => {}}
-          >
-            Save
-          </button>
-        ) : StepperValue <= 2 ? (
+        {steppervalue === 2 ? (
           <button
             className="btn"
             variant="contained"
             sx={{}}
             onClick={() => NavigateToNextPage()}
           >
-            Next
+            Save
           </button>
+        ) : steppervalue <= 2 ? (
+          <Button
+            className="btn"
+            variant="contained"
+            sx={{}}
+            onClick={() => NavigateToNextPage()}
+          >
+            Next
+          </Button>
         ) : (
           ""
         )}

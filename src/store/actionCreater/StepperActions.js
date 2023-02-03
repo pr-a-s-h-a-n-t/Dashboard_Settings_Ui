@@ -3,10 +3,10 @@ export const IncrementStepperValue = (StepperValue) => (dispatch, getState) => {
     StepperValue: { steppervalue },
   } = getState();
   console.log(`stepper value in action increment: ${StepperValue}`);
-
+ let updateStepperValue = steppervalue + 1;
   dispatch({
     type: "Increment_Stepper_Value",
-    payload: steppervalue + 1,
+    payload: updateStepperValue,
   });
 };
 
@@ -16,10 +16,11 @@ export const DecrementStepperValue = () => (dispatch, getState) => {
   } = getState();
   console.log(`stepper value in action decrement: ${steppervalue}`);
 
-  let newStepperValue = steppervalue - 1;
+  let updateStepperValue = steppervalue - 1;
+
 
   dispatch({
     type: "Decrement_Stepper_Value",
-    payload: newStepperValue,
+    payload: updateStepperValue,
   });
 };

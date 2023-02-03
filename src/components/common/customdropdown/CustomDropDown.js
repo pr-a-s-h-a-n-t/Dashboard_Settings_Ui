@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 function CustomDropDown({ dropDownList, value, onChange, disabled }) {
   const dispatch = useDispatch();
   const StepperValue = useSelector((state) => state.StepperValue);
+  const { steppervalue } = StepperValue;
 
   const handleChange = (event) => {
     onChange(event.target.value);
@@ -21,7 +22,7 @@ function CustomDropDown({ dropDownList, value, onChange, disabled }) {
         <Select
           fullWidth
           displayEmpty
-          disabled={StepperValue === 2 ? true : false}
+          disabled={steppervalue === 2 ? true : false}
           id="simple-select"
           inputProps={{
             "aria-label": "Without label",

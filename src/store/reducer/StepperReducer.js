@@ -1,5 +1,4 @@
- let steppervalue = 0;
-export const StepperReducer = (state  =1 , action) => {
+export const StepperReducer = (state = { steppervalue: 0 }, action) => {
   switch (action.type) {
     case "Increment_Stepper_Value":
       return { steppervalue: action.payload };

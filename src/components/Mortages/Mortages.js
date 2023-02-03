@@ -14,9 +14,9 @@ function Mortages() {
   // const [stepperValue, setStepperValue] = useState(0);
   const dispatch = useDispatch();
   const StepperValue = useSelector((state) => state.StepperValue);
-  const { value } = StepperValue;
+  const { steppervalue } = StepperValue;
   console.log(`Stepper value in mortage: ${StepperValue}`);
-  console.log(`  value in mortage: ${value}`);
+  console.log(`  value in mortage: ${steppervalue}`);
 
   return (
     <div className="udf-container">

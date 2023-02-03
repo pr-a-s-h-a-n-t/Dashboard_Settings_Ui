@@ -113,13 +113,14 @@ const steps = ["Upload EDFs", "Map Channels", "Save & Preview"];
 
 export default function StepperComponent() {
   const dispatch = useDispatch();
-  // const StepperValue = useSelector((state) => state.StepperValue);
+  const StepperValue = useSelector((state) => state.StepperValue);
+  const { steppervalue } = StepperValue;
+
   return (
     <Stack sx={{ width: "100%" }} spacing={4}>
       <Stepper
         alternativeLabel
-        // activeStep={StepperValue}
-        activeStep={0}
+        activeStep={steppervalue}
         connector={<ColorlibConnector />}
       >
         {steps.map((label) => (
