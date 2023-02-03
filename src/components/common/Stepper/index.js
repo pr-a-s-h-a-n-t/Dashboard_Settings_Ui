@@ -13,6 +13,7 @@ import VideoLabelIcon from "@mui/icons-material/VideoLabel";
 import StepConnector, {
   stepConnectorClasses,
 } from "@mui/material/StepConnector";
+import { useDispatch, useSelector } from "react-redux";
 
 const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.alternativeLabel}`]: {
@@ -110,12 +111,15 @@ ColorlibStepIcon.propTypes = {
 
 const steps = ["Upload EDFs", "Map Channels", "Save & Preview"];
 
-export default function StepperComponent({ setStepperValue, stepperValue }) {
+export default function StepperComponent() {
+  const dispatch = useDispatch();
+  // const StepperValue = useSelector((state) => state.StepperValue);
   return (
     <Stack sx={{ width: "100%" }} spacing={4}>
       <Stepper
         alternativeLabel
-        activeStep={stepperValue}
+        // activeStep={StepperValue}
+        activeStep={0}
         connector={<ColorlibConnector />}
       >
         {steps.map((label) => (

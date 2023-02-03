@@ -8,11 +8,13 @@ import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 import { MapChannelsReducer } from "./reducer/MapChannelsReducer";
+import { StepperReducer } from "./reducer/StepperReducer";
 
 const reducer = combineReducers({
   // combines all the reducers
 
   AllChannels: MapChannelsReducer,
+  StepperValue: StepperReducer,
 });
 
 //state of application.

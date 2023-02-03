@@ -8,10 +8,15 @@ import BottomNav from "../common/BottomNav";
 import Upload from "../edf/index";
 import MapChannels from "../mapchannels";
 import TopHeading from "../../components/common/TopHeading/index";
+import { useDispatch, useSelector } from "react-redux";
 
 function Mortages() {
-  
-  const [stepperValue, setStepperValue] = useState(0);
+  // const [stepperValue, setStepperValue] = useState(0);
+  const dispatch = useDispatch();
+  const StepperValue = useSelector((state) => state.StepperValue);
+  const { value } = StepperValue;
+  console.log(`Stepper value in mortage: ${StepperValue}`);
+  console.log(`  value in mortage: ${value}`);
 
   return (
     <div className="udf-container">
@@ -23,27 +28,14 @@ function Mortages() {
       </div>
 
       <div className="steppercontainer">
-        <Stepper
-          setStepperValue={setStepperValue}
-          stepperValue={stepperValue}
-        />
+        <Stepper />
       </div>
 
       <div className="Upload-container">
-        {stepperValue === 0 ? (
-          <Upload />
-        ) : (
-          <MapChannels
-            setStepperValue={setStepperValue}
-            stepperValue={stepperValue}
-          />
-        )}
+        {StepperValue === 0 ? <Upload /> : <MapChannels />}
       </div>
       <div className="bottomnavbar-container">
-        <BottomNav
-          setStepperValue={setStepperValue}
-          stepperValue={stepperValue}
-        />
+        <BottomNav />
       </div>
     </div>
   );

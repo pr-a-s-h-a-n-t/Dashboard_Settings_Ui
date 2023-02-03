@@ -5,11 +5,11 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-
- 
+import { useDispatch, useSelector } from "react-redux";
 
 function CustomDropDown({ dropDownList, value, onChange, disabled }) {
-  // const theme = useTheme();
+  const dispatch = useDispatch();
+  const StepperValue = useSelector((state) => state.StepperValue);
 
   const handleChange = (event) => {
     onChange(event.target.value);
@@ -21,14 +21,7 @@ function CustomDropDown({ dropDownList, value, onChange, disabled }) {
         <Select
           fullWidth
           displayEmpty
-          // label="Select"
-          // sx={{
-          //   width: "274px",
-          //   height: "40px",
-          //   border: "1px solid black",
-          // }}
-          // disabled={disabled}
-          // required={required}
+          disabled={StepperValue === 2 ? true : false}
           id="simple-select"
           inputProps={{
             "aria-label": "Without label",

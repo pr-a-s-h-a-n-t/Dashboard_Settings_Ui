@@ -13,7 +13,7 @@ import {
   DeleteBackupChannels,
   UpdateBackupChannelsPrimaryChannels,
   UpdateBackupChannelsReferenceChannels,
-} from "../../../redux/actionCreater/Action";
+} from "../../../store/actionCreater/MapChannelsActions";
 import { useDispatch, useSelector } from "react-redux";
 import CustomDropDown from "../../common/customdropdown/CustomDropDown";
 import {

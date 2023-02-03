@@ -1,51 +1,31 @@
 import { Button, Typography } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
 import "./BottomNav.css";
+import {
+  IncrementStepperValue,
+  DecrementStepperValue,
+} from "../../../store/actionCreater/StepperActions";
 
-function BottomBav({ setStepperValue, stepperValue }) {
-  let btnRef = useRef(false);
-  const [val, setVal] = useState(false);
+import { useDispatch, useSelector } from "react-redux";
+
+function BottomBav() {
+  const dispatch = useDispatch();
+  const StepperValue = useSelector((state) => state.StepperValue);
+
   const NavigateToNextPage = () => {
-    if (stepperValue === 0) {
-      console.log("NavigateToNextPage stepper value initial: " + stepperValue);
-      setStepperValue(stepperValue + 1);
-      console.log("NavigateToNextPage stepper value after: " + stepperValue);
-    } else if (stepperValue === 1) {
-      setStepperValue(stepperValue + 1);
-    }
+    dispatch(IncrementStepperValue(StepperValue));
   };
   const NavigateToPreviousPage = () => {
-    if (stepperValue === 2) {
-      setStepperValue(stepperValue - 1);
-    } else if (stepperValue === 1) {
-      setStepperValue(stepperValue - 1);
-    }
+    dispatch(DecrementStepperValue());
   };
-  const stepperValueCheck = (stepperValue) => {
-    if (stepperValue === 0) {
-      // btnRef.current = true;
-      setVal(!val);
-    } else if (stepperValue >= 1) {
-      // btnRef.current = true;
-      setVal(false);
-    }
-
-    console.log("Stepper value check function finish running");
-  };
-
-  useEffect(() => {
-    console.log("NavigateToNextPage stepper value useeffect: " + stepperValue);
-    stepperValueCheck(stepperValue);
-    console.log("btnRef value: ", btnRef.current);
-  }, [stepperValue]);
 
   return (
     <div className="bottomnav-container">
       <div className="bottomnavcontainer-element-start">
         <span>
           <button
-            disabled={val}
-            className={stepperValue >= 1 ? "btn" : "disable-btn"}
+            disabled={StepperValue === 0 ? true : false}
+            className={StepperValue >= 1 ? "btn" : "disable-btn"}
             onClick={() => NavigateToPreviousPage()}
           >
             Back
@@ -61,14 +41,27 @@ function BottomBav({ setStepperValue, stepperValue }) {
         </span>
       </div>
       <div className="bottomnav-container-element-end">
-        <button
-          className="btn"
-          variant="contained"
-          sx={{}}
-          onClick={() => NavigateToNextPage()}
-        >
-          Next
-        </button>
+        {StepperValue === 2 ? (
+          <button
+            className="btn"
+            variant="contained"
+            sx={{}}
+            onClick={() => {}}
+          >
+            Save
+          </button>
+        ) : StepperValue <= 2 ? (
+          <button
+            className="btn"
+            variant="contained"
+            sx={{}}
+            onClick={() => NavigateToNextPage()}
+          >
+            Next
+          </button>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );

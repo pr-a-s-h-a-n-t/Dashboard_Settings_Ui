@@ -1,7 +1,4 @@
- 
-
 export const MapChannelsReducer = (state = [], action) => {
- 
   switch (action.type) {
     case "FetchAll_Channels":
       return { allChannels: action.payload };
