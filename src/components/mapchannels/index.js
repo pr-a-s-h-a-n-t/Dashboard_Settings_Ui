@@ -7,15 +7,12 @@ import {
   referenceChannel,
 } from "../common/JsonData/ChannelOptions";
 import { Button } from "@mui/material";
-
-// --------------------------
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Channels from "./Channels/Channels";
-//----------------------------
 
 const columns = [
   {
@@ -23,12 +20,12 @@ const columns = [
     dataIndex: "Channel",
   },
   {
-    title: "Primary Channel (default select)",
-    dataIndex: "Primary Channel (default select)",
+    title: "Primary Channel  ",
+    dataIndex: "Primary Channel ",
   },
   {
-    title: "Reference Channel (default N/A)",
-    dataIndex: "Reference Channel (default N/A)",
+    title: "Reference Channel  ",
+    dataIndex: "Reference Channel  ",
   },
 ];
 

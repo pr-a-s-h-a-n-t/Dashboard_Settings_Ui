@@ -1,7 +1,4 @@
-export const FetchAllChannels = (Channels) => (dispatch, getState) => {
-  const {
-    AllChannels: { allChannels },
-  } = getState();
+export const FetchAllChannels = (Channels) => (dispatch) => {
   dispatch({
     type: "FetchAll_Channels",
     payload: Channels,
@@ -15,7 +12,8 @@ export const UpdatePrimaryChannels = (value, index) => (dispatch, getState) => {
 
   let data = [...allChannels];
   data[index].primaryChannel = value;
-  // setSelectedChannel(data);
+
+  localStorage.setItem("MapChannelsData", JSON.stringify(data));
 
   dispatch({
     type: "Update_Primary_Channels",
@@ -31,6 +29,7 @@ export const UpdateReferenceChannels =
 
     let data = [...allChannels];
     data[index].refChannel = value;
+    localStorage.setItem("MapChannelsData", JSON.stringify(data));
 
     dispatch({
       type: "Update_Reference_Channels",
@@ -39,8 +38,6 @@ export const UpdateReferenceChannels =
   };
 
 export const ToggleBackupChannels = (channelId) => (dispatch, getState) => {
- 
-
   const {
     AllChannels: { allChannels },
   } = getState();
@@ -48,6 +45,7 @@ export const ToggleBackupChannels = (channelId) => (dispatch, getState) => {
   let data = [...allChannels];
   let temp = data[channelId].showBackUp;
   data[channelId].showBackUp = !temp;
+  localStorage.setItem("MapChannelsData", JSON.stringify(data));
 
   dispatch({
     type: "Toggle_Backup_Channels",
@@ -56,8 +54,6 @@ export const ToggleBackupChannels = (channelId) => (dispatch, getState) => {
 };
 
 export const AddBackupChannels = (index) => (dispatch, getState) => {
- 
-
   const {
     AllChannels: { allChannels },
   } = getState();
@@ -72,6 +68,7 @@ export const AddBackupChannels = (index) => (dispatch, getState) => {
       refChannel: "",
     },
   ];
+  localStorage.setItem("MapChannelsData", JSON.stringify(data));
 
   dispatch({
     type: "Add_Backup_Channels",
@@ -92,6 +89,7 @@ export const DeleteBackupChannels = (index, id) => (dispatch, getState) => {
   });
 
   data[id].backupChannels = [...filteredBackupChannels];
+  localStorage.setItem("MapChannelsData", JSON.stringify(data));
 
   dispatch({
     type: "Delete_Backup_Channels",
@@ -101,8 +99,6 @@ export const DeleteBackupChannels = (index, id) => (dispatch, getState) => {
 
 export const UpdateBackupChannelsPrimaryChannels =
   (value, index, id) => (dispatch, getState) => {
- 
-
     const {
       AllChannels: { allChannels },
     } = getState();
@@ -110,6 +106,7 @@ export const UpdateBackupChannelsPrimaryChannels =
     let data = [...allChannels];
 
     data[id].backupChannels[index].primaryChannel = value;
+    localStorage.setItem("MapChannelsData", JSON.stringify(data));
 
     dispatch({
       type: "Update_Backup_Channels_Primary_Channels",
@@ -126,6 +123,7 @@ export const UpdateBackupChannelsReferenceChannels =
     let data = [...allChannels];
 
     data[id].backupChannels[index].refChannel = value;
+    localStorage.setItem("MapChannelsData", JSON.stringify(data));
 
     dispatch({
       type: "Update_Backup_Channels_Reference_Channels",

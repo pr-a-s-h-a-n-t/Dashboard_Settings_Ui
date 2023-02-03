@@ -6,6 +6,9 @@ export const StepperReducer = (state = { steppervalue: 0 }, action) => {
     case "Decrement_Stepper_Value":
       return { steppervalue: action.payload };
 
+    case "Cancel_Mortage":
+      return { steppervalue: action.payload };
+
     default:
       return state;
   }

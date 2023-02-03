@@ -22,7 +22,7 @@ function CustomDropDown({ dropDownList, value, onChange, disabled }) {
         <Select
           fullWidth
           displayEmpty
-          disabled={steppervalue === 2 ? true : false}
+          disabled={steppervalue >= 3 ? true : false}
           id="simple-select"
           inputProps={{
             "aria-label": "Without label",

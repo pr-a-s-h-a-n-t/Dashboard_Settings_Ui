@@ -30,7 +30,11 @@ export default function Channels() {
   const { allChannels } = AllChannels;
 
   useEffect(() => {
-    if (ChannelsData.channels) {
+    let mapchannelsdata = JSON.parse(localStorage.getItem("MapChannelsData"));
+    console.log("MapChannelsData loaded", mapchannelsdata);
+    if (mapchannelsdata) {
+      dispatch(FetchAllChannels(mapchannelsdata));
+    } else if (ChannelsData.channels) {
       const allChannels = ChannelsData.channels.map((ch) => {
         return {
           channelName: ch,
@@ -40,7 +44,7 @@ export default function Channels() {
           backupChannels: [],
         };
       });
-
+      console.log("Channels are", allChannels);
       dispatch(FetchAllChannels(allChannels));
     }
   }, [ChannelsData.channels, dispatch]);
@@ -133,49 +137,49 @@ export default function Channels() {
                   />
                 </Grid>
                 {/* <Grid container> */}
-                  {allChannels ? (
-                    <Grid
-                      item
-                      xs={2}
-                      sx={{
-                        border: "2px solid red",
-                        background: "silver",
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                      }}
+                {allChannels ? (
+                  <Grid
+                    item
+                    xs={2}
+                    sx={{
+                      border: "2px solid red",
+                      background: "silver",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Button
+                      variant="contained"
+                      onClick={() => findChannel(id)}
+                      sx={{}}
                     >
-                      <Button
-                        variant="contained"
-                        onClick={() => findChannel(id)}
-                        sx={{}}
-                      >
-                        {allChannels[id].showBackUp === true
-                          ? `hide Backup Channels (${allChannels[id].backupChannels.length})`
-                          : "Add Backup Channels"}
-                      </Button>
-                    </Grid>
-                  ) : (
-                    <Grid
-                      item
-                      xs={3}
-                      sx={{
-                        border: "2px solid red",
-                        background: "silver",
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                      }}
+                      {allChannels[id].showBackUp === true
+                        ? `hide Backup Channels (${allChannels[id].backupChannels.length})`
+                        : "Add Backup Channels"}
+                    </Button>
+                  </Grid>
+                ) : (
+                  <Grid
+                    item
+                    xs={3}
+                    sx={{
+                      border: "2px solid red",
+                      background: "silver",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Button
+                      variant="contained"
+                      onClick={() => editChannels(id)}
+                      sx={{}}
                     >
-                      <Button
-                        variant="contained"
-                        onClick={() => editChannels(id)}
-                        sx={{}}
-                      >
-                        Edit Channel
-                      </Button>
-                    </Grid>
-                  )}
+                      Edit Channel
+                    </Button>
+                  </Grid>
+                )}
                 {/* </Grid> */}
                 {allChannels[id].showBackUp === true ? (
                   <Grid

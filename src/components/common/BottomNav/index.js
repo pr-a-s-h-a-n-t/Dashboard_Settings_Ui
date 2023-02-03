@@ -4,6 +4,7 @@ import "./BottomNav.css";
 import {
   IncrementStepperValue,
   DecrementStepperValue,
+  CancelMortage,
 } from "../../../store/actionCreater/StepperActions";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -20,37 +21,43 @@ function BottomBav() {
     dispatch(DecrementStepperValue());
   };
 
+  const HandleMortage = () => {
+    dispatch(CancelMortage());
+  };
+
   return (
     <div className="bottomnav-container">
       <div className="bottomnavcontainer-element-start">
         <span>
-          <button
-            disabled={StepperValue === 0 ? true : false}
-            className={StepperValue >= 1 ? "btn" : "disable-btn"}
+          <Button
+            variant="outlined"
+            disabled={steppervalue === 0 ? true : false}
+            className={steppervalue >= 1 ? "btn" : "disable-btn"}
             onClick={() => NavigateToPreviousPage()}
           >
             Back
-          </button>
+          </Button>
         </span>
         <span id="cancel-montage">
-          <button
-            className="btn"
-            //  className="disable-btn"
+          <Button
+            disabled={true}
+            onClick={() => HandleMortage()}
+            className="disable-btn"
           >
             Cancel Montage
-          </button>
+          </Button>
         </span>
       </div>
       <div className="bottomnav-container-element-end">
         {steppervalue === 2 ? (
-          <button
+          <Button
             className="btn"
             variant="contained"
             sx={{}}
             onClick={() => NavigateToNextPage()}
           >
             Save
-          </button>
+          </Button>
         ) : steppervalue <= 2 ? (
           <Button
             className="btn"
