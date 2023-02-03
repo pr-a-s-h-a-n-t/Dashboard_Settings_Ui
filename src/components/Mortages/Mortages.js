@@ -32,7 +32,7 @@ function Mortages() {
       </div>
 
       <div className="Upload-container">
-        {StepperValue === 0 ? <Upload /> : <MapChannels />}
+        {steppervalue === 0 ? <Upload /> : <MapChannels />}
       </div>
       <div className="bottomnavbar-container">
         <BottomNav />
