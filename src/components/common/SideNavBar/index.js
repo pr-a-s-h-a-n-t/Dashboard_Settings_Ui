@@ -54,26 +54,37 @@ function SideNavBar(props) {
         <h1>React Test</h1>
       </div>
       <hr />
-      <List
-        sx={{
-          border: "1px solid pink",
-        }}
-      >
+      <List sx={{}}>
         {navItem.map((text, i) => (
           <ListItem
             key={i}
             disablePadding
-            sx={{
-              border: "1px solid pink",
-              width: "133px",
-              height: "24px",
-              display: " flex",
-              flexDirection: "row",
-              justifyContent: " center",
-              alignItems: "center",
-              margin: "48px 135px 49px 32px",
-              gap: "16px",
-            }}
+            sx={
+              text.name === "Montages"
+                ? {
+                    width: "100%",
+                    height: "64px",
+                    display: " flex",
+                    flexDirection: "row",
+                    justifyContent: " center",
+                    alignItems: "center",
+                    padding: "20px 135px 20px 32px",
+                    gap: "16px",
+                    borderLeft: "3px solid #2CA9E3;",
+                    // color: "white",
+                    background: " rgba(44, 169, 227, 0.25)",
+                  }
+                : {
+                    width: "133px",
+                    height: "24px",
+                    display: " flex",
+                    flexDirection: "row",
+                    justifyContent: " center",
+                    alignItems: "center",
+                    margin: "48px 135px 49px 32px",
+                    gap: "16px",
+                  }
+            }
           >
             <ListItemButton>
               <ListItemIcon>
@@ -85,18 +96,6 @@ function SideNavBar(props) {
         ))}
       </List>
       <Divider />
-      {/* <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List> */}
     </div>
   );
 
@@ -108,28 +107,7 @@ function SideNavBar(props) {
 
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      {/* <AppBar
-        position="fixed"
-        sx={{
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
-          ml: { sm: `${drawerWidth}px` },
-        }}
-      >
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            oura_Study
-          </Typography>
-        </Toolbar>
-      </AppBar> */}
+
       <Box
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}

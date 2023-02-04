@@ -1,8 +1,6 @@
-.SideNavBar-container{
+.SideNavBar-container {
   width: 18.75rem;
   height: 100vh;
-  border: 10px solid red;
-  /* overflow : hidden !important; */
 }
 
 .SideNavBar-header h1 {
@@ -15,11 +13,10 @@
   font-size: 1.75rem;
   line-height: 2.25rem;
   text-align: center;
-  border: 1px solid red;
+
   margin: 2.5rem 4.9375rem 2rem 4.9375rem;
   color: #ffffff;
 }
 hr {
-  width: 15.625rem; 
-  border: 2.19868px solid #4f4f4f;
+  width: 15.625rem;
 }
