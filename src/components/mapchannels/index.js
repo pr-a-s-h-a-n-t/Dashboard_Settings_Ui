@@ -71,21 +71,21 @@ function MapChannels({}) {
     <div className="MapChannels-container">
       <form>
         <div className="mapChannels-table">
-         
-            <div className="table-head">
+          <div className="table-head">
             <div className="ck">
               {columns.map((column, index) => {
                 return (
                   <div
                     key={index}
-                    style={{
-                     
-                      // backgroundColor: "red",
-                      // marginLeft: "56px",
-                      // width: "70%",
-                      // paddingRight: "10px",
-                      // marginRight: "20px",
-                    }}
+                    style={
+                      {
+                        // backgroundColor: "red",
+                        // marginLeft: "56px",
+                        // width: "70%",
+                        // paddingRight: "10px",
+                        // marginRight: "20px",
+                      }
+                    }
                   >
                     {column.title}
                   </div>

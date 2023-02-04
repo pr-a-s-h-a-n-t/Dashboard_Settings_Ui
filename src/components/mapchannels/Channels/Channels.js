@@ -14,6 +14,8 @@ import {
   UpdateBackupChannelsPrimaryChannels,
   UpdateBackupChannelsReferenceChannels,
 } from "../../../store/actionCreater/MapChannelsActions";
+
+import { EditChannels } from "../../../store/actionCreater/StepperActions";
 import { useDispatch, useSelector } from "react-redux";
 import CustomDropDown from "../../common/customdropdown/CustomDropDown";
 import {
@@ -78,11 +80,9 @@ export default function Channels() {
     dispatch(DeleteBackupChannels(index, id));
   };
 
-  const editChannels = (index, id) => {
-    console.log("editChannels", index, id);
+  const openEditOptions = () => {
+    dispatch(EditChannels());
   };
-
-  const openEditOptions = (index, id) => {};
 
   return (
     <Box sx={{ m: 3 }}>
@@ -95,9 +95,7 @@ export default function Channels() {
                 // xs={2}
                 key={id}
                 sx={{
-                  border: "2px solid red",
                   mt: "6px",
-                  background: "silver",
                 }}
               >
                 <Grid
@@ -111,14 +109,7 @@ export default function Channels() {
                 >
                   <Typography p>{ch.channelName}</Typography>
                 </Grid>
-                <Grid
-                  item
-                  xs={3.5}
-                  sx={{
-                    border: "2px solid red",
-                    background: "silver",
-                  }}
-                >
+                <Grid item xs={3.5} sx={{}}>
                   <CustomDropDown
                     dropDownList={primaryChannelOption}
                     value={ch.primaryChannel}
@@ -128,11 +119,11 @@ export default function Channels() {
                 <Grid
                   item
                   xs={3.5}
-                  sx={{
-                    border: "2px solid red",
-                    background: "silver",
-                    //  margin: "auto"
-                  }}
+                  sx={
+                    {
+                      //  margin: "auto"
+                    }
+                  }
                 >
                   <CustomDropDown
                     dropDownList={referenceChannelOption}
@@ -146,8 +137,6 @@ export default function Channels() {
                     item
                     xs={2.5}
                     sx={{
-                      border: "2px solid red",
-                      background: "brown",
                       display: "flex",
                       justifyContent: "center",
                       alignItems: "center",
@@ -156,7 +145,20 @@ export default function Channels() {
                     <Button
                       variant="contained"
                       onClick={() => findChannel(id)}
-                      sx={{}}
+                      sx={{
+                        display: "flex",
+                        flexDirection: " row",
+                        justifyContent: " center",
+                        alignItems: " center",
+                        padding: "20px",
+                        gap: "10px",
+
+                        width: "220px",
+                        height: " 61px",
+
+                        border: "1.5px solid #2F7EC7",
+                        borderRadius: "8px",
+                      }}
                     >
                       {allChannels[id].showBackUp === true
                         ? `hide Backup Channels (${allChannels[id].backupChannels.length})`
@@ -169,18 +171,7 @@ export default function Channels() {
                 {/* </Grid> */}
 
                 {allChannels[id].showBackUp === true ? (
-                  <Grid
-                    container
-                    // xs={12}
-                    // sx={{
-                    //   border: "2px solid aquamarine",
-                    //   background: "silver",
-                    //   display: "flex",
-                    //   justifyContent: "center",
-                    //   alignItems: "center",
-                    //   margin: "5px",
-                    // }}
-                  >
+                  <Grid container>
                     <Grid
                       item
                       sx={{
@@ -201,20 +192,14 @@ export default function Channels() {
                               <Grid
                                 container
                                 rowGap={2}
-                                // margin="auto"
-                                sx={{
-                                  border: "2px solid red",
-                                  background: "blue",
-                                }}
+                                margin="auto"
+                                sx={{}}
                                 key={index}
                               >
                                 <Grid
                                   item
-                                  xs={4.2}
-                                  sx={{
-                                    border: "2px solid red",
-                                    background: "silver",
-                                  }}
+                                  xs={steppervalue < 2 ? 4.2 : 6}
+                                  sx={{}}
                                 >
                                   <CustomDropDown
                                     dropDownList={primaryChannelOption}
@@ -230,13 +215,14 @@ export default function Channels() {
                                 </Grid>
                                 <Grid
                                   item
-                                  xs={4.2}
+                                  // xs={4.2}
+                                  xs={steppervalue < 2 ? 4.2 : 6}
                                   // ml={2}
-                                  sx={{
-                                    border: "2px solid red",
-                                    background: "silver",
-                                    //  margin: "auto"
-                                  }}
+                                  sx={
+                                    {
+                                      //  margin: "auto"
+                                    }
+                                  }
                                 >
                                   <CustomDropDown
                                     dropDownList={referenceChannelOption}
@@ -256,14 +242,31 @@ export default function Channels() {
                                     xs={1.5}
                                     m="auto"
                                     sx={{
-                                      border: "2px solid red",
-                                      background: "silver",
+                                      // border: "2px solid red",
+                                      // background: "silver",
                                       display: "flex",
                                       justifyContent: "center",
                                       alignItems: "center",
                                     }}
                                   >
                                     <Button
+                                      sx={{
+                                        // width: "100px",
+                                        // height: " 21px",
+
+                                        // fontFamily: "DM Sans",
+                                        // fontStyle: "normal",
+                                        // fontWeight: " 500",
+                                        // fontSize: " 16px",
+                                        // lineHeight: "21px",
+                                        // display: "flex",
+
+                                        /* identical to box height */
+
+                                        letterSpacing: " 0.02em",
+
+                                        color: " #2F7EC7",
+                                      }}
                                       onClick={() => {
                                         handleRemoveBackUpChannels(index, id);
                                       }}
@@ -295,7 +298,19 @@ export default function Channels() {
                         <Button
                           variant="contained"
                           onClick={() => openEditOptions(id)}
-                          sx={{}}
+                          sx={{
+                            flexDdirection: " row",
+                            justifyContent: "center",
+                            alignItems: " center",
+                            padding: " 10px",
+                            gap: "10px",
+
+                            width: "140px",
+                            height: " 45px",
+
+                            border: " 1.5px solid #2F7EC7",
+                            borderRadius: " 5px",
+                          }}
                         >
                           Edit Channel
                         </Button>
@@ -312,7 +327,6 @@ export default function Channels() {
                             display: "flex",
                             justifyContent: "center",
                             alignItems: "center",
-                            borderBottom: "5px solid blue",
                           }}
                           item
                         >

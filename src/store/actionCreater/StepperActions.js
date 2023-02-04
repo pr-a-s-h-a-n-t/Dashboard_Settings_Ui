@@ -31,3 +31,12 @@ export const CancelMortage = () => (dispatch) => {
     payload: updateStepperValue,
   });
 };
+
+export const EditChannels = () => (dispatch) => {
+  let updateStepperValue = 1;
+
+  dispatch({
+    type: "edit_Channels",
+    payload: updateStepperValue,
+  });
+};
