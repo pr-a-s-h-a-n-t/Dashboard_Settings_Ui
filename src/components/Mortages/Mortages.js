@@ -22,10 +22,7 @@ function Mortages() {
     <div className="udf-container">
     <Grid  
     sx={{
-      display: {
-        sm: "none",
-        md: "block",
-      }
+      
     }}
     item>
       <div className="sidenavbarcontainer">

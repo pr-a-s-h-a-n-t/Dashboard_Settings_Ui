@@ -37,35 +37,6 @@ const columns = [
 function MapChannels({}) {
   const dispatch = useDispatch();
   const AdditionalSettings = useSelector((state) => state.AdditionalSettings);
-  console.log("-------------------------------->", AdditionalSettings);
-
-  // const { settings } = AdditionalSettings;
-  // console.log("-------------------------------->", settings);
-
-  // useEffect(() => {
-  //   let AdditionalSettings = ChannelsData.optionals[0];
-
-  // if (AdditionalSettings) {
-  //   let options1 = Object.keys(AdditionalSettings)[0];
-  //   let options2 = Object.keys(AdditionalSettings)[1];
-
-  //   let settings = {
-  //     options1: AdditionalSettings.optional1,
-  //     options2: AdditionalSettings.optional1,
-  //   };
-  // dispatch(UpdateAdditionalSettings( ));
-  // }
-  // }, [dispatch]);
-
-  // const [isChecked, setIsChecked] = useState(false);
-
-  // const updateAddtionalSettings = (value, option)=>{
-  //   // console.log('updateAddtionalSettings',value ,"------->", option);
-
-  //     dispatch(UpdateAdditionalSettingsoptions1(value, option));
-  //     console.log('dispatch called');
-
-  // }
 
   return (
     <div className="MapChannels-container">
@@ -74,22 +45,7 @@ function MapChannels({}) {
           <div className="table-head">
             <div className="ck">
               {columns.map((column, index) => {
-                return (
-                  <div
-                    key={index}
-                    style={
-                      {
-                        // backgroundColor: "red",
-                        // marginLeft: "56px",
-                        // width: "70%",
-                        // paddingRight: "10px",
-                        // marginRight: "20px",
-                      }
-                    }
-                  >
-                    {column.title}
-                  </div>
-                );
+                return <div key={index}>{column.title}</div>;
               })}
             </div>
           </div>
@@ -106,7 +62,6 @@ function MapChannels({}) {
                 <span>
                   <input
                     type="checkbox"
-
                     // id={Object.keys(settings)[0]}
                     // name={Object.keys(settings)[0]}
                     // value={settings.options1}

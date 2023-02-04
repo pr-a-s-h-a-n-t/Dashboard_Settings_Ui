@@ -7,7 +7,7 @@ Note- work on css after completing the logic part!!!
   height: 35.625rem;
   /* height: clamp(80px, auto, 35.625rem); */
   margin: 40px auto;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   /* background: #ffffff; */
   /* background-color: aquamarine; */
   border-radius: 5.43313px;
@@ -30,7 +30,7 @@ Note- work on css after completing the logic part!!!
 .upload {
   width: 174px;
   height: 196px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
   justify-content: center;

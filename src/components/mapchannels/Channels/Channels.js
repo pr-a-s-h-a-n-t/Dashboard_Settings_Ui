@@ -171,7 +171,18 @@ export default function Channels() {
                 {/* </Grid> */}
 
                 {allChannels[id].showBackUp === true ? (
-                  <Grid container>
+                  <Grid
+                    container
+                    sx={
+                      steppervalue === 1
+                        ? {
+                            background: " #F7F7F7",
+                          }
+                        : {
+                            background: " #fff",
+                          }
+                    }
+                  >
                     <Grid
                       item
                       sx={{
@@ -251,18 +262,6 @@ export default function Channels() {
                                   >
                                     <Button
                                       sx={{
-                                        // width: "100px",
-                                        // height: " 21px",
-
-                                        // fontFamily: "DM Sans",
-                                        // fontStyle: "normal",
-                                        // fontWeight: " 500",
-                                        // fontSize: " 16px",
-                                        // lineHeight: "21px",
-                                        // display: "flex",
-
-                                        /* identical to box height */
-
                                         letterSpacing: " 0.02em",
 
                                         color: " #2F7EC7",

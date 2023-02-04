@@ -8,7 +8,7 @@ import {
 } from "../../../store/actionCreater/StepperActions";
 
 import { useDispatch, useSelector } from "react-redux";
-
+import { Notification } from "../../utils/Notifications";
 function BottomBav() {
   const dispatch = useDispatch();
   const StepperValue = useSelector((state) => state.StepperValue);
@@ -25,6 +25,15 @@ function BottomBav() {
     dispatch(CancelMortage());
   };
 
+  const saveMortageData = () => {
+    dispatch(IncrementStepperValue(StepperValue));
+
+     Notification({
+    message: "Channels configured successfully.",
+    type: "success",
+  });
+ 
+  }
   return (
     <Grid container > 
     <Grid item    lg={12}
@@ -61,7 +70,7 @@ function BottomBav() {
             className="btn"
             variant="contained"
             sx={{}}
-            onClick={() => NavigateToNextPage()}
+            onClick={() => saveMortageData()}
           >
             Save
           </Button>
