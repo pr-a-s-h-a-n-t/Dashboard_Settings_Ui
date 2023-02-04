@@ -1,4 +1,4 @@
-import { Button, Typography } from "@mui/material";
+import { Button, Grid, Typography } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
 import "./BottomNav.css";
 import {
@@ -26,7 +26,14 @@ function BottomBav() {
   };
 
   return (
-    <div className="bottomnav-container">
+    <Grid container > 
+    <Grid item    lg={12}
+   
+    >
+
+ 
+      <div className="bottomnav-container">
+      
       <div className="bottomnavcontainer-element-start">
         <span>
           <Button
@@ -72,6 +79,11 @@ function BottomBav() {
         )}
       </div>
     </div>
+    </Grid>
+    </Grid>
+
+      
+  
   );
 }
 

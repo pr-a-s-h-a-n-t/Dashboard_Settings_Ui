@@ -9,7 +9,7 @@ Note- work on css after completing the logic part!!!
   margin: 40px auto;
   border: 1px solid red;
   /* background: #ffffff; */
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
   border-radius: 5.43313px;
   display: flex;
   justify-content: center;
@@ -19,7 +19,7 @@ Note- work on css after completing the logic part!!!
   width: 1444px;
   height: 506px;
   background: #f8f8f8;
-  border: 1.5px dashed #8a8a8a;
+  border: 2.5px dashed #8a8a8a;
   border-radius: 5px;
   display: flex;
   flex-direction: column;

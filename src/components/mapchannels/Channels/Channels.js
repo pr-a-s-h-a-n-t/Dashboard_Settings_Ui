@@ -31,7 +31,7 @@ export default function Channels() {
 
   useEffect(() => {
     let mapchannelsdata = JSON.parse(localStorage.getItem("MapChannelsData"));
-    console.log("MapChannelsData loaded", mapchannelsdata);
+    // console.log("MapChannelsData loaded", mapchannelsdata);
     if (mapchannelsdata) {
       dispatch(FetchAllChannels(mapchannelsdata));
     } else if (ChannelsData.channels) {
@@ -44,7 +44,7 @@ export default function Channels() {
           backupChannels: [],
         };
       });
-      console.log("Channels are", allChannels);
+      // console.log("Channels are", allChannels);
       dispatch(FetchAllChannels(allChannels));
     }
   }, [ChannelsData.channels, dispatch]);

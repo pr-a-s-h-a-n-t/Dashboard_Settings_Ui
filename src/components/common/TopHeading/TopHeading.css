@@ -1,13 +1,25 @@
 .topheadingcontainer {
-  max-width: 80%;
+  /* max-width: 80%; */
   margin-left: 300px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 5.25rem 0 2rem;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
-.topheadingcontainer-heading {
+.topheadingcontainer-heading p{
+  width: 172px;
+height: 36px;
+ 
+
+font-family: 'DM Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 28px;
+line-height: 36px;
+letter-spacing: 0.02em;
+
+color: #000000;
 }
 .topheadingcontainer-usercontainer {
   display: flex;
@@ -17,6 +29,9 @@
   gap: 8px;
   width: 10.4375rem;
   height: 1.875rem;
+
+
+ 
 }
 
 #user {
@@ -25,7 +40,7 @@
   font-family: "DM Sans";
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 21px;
   letter-spacing: 0.015em;
   color: #022539;

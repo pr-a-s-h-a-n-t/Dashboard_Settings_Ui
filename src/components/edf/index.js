@@ -1,6 +1,7 @@
 import React,{ useRef, useState } from "react";
 import "./edf.css";
 import edfLogo from "../../assets/edfupload/edfLogo.png";
+import { Grid } from "@mui/material";
 
 function Upload() {
   let inputRef = React.createRef();
@@ -27,6 +28,10 @@ function Upload() {
   };
 
   return (
+    <Grid container>
+    <Grid item  lg={12}
+   
+    > 
     <div className="upload-edfs-conatainer">
       <div className="edfs-upload">
         <div className="upload">
@@ -39,7 +44,7 @@ function Upload() {
             }}
             ref={inputRef}
             type={"file"}
-            // value={" "}
+           
             onChange={(e) => uploadLogo(e)}
           />
           <button id="upload-btn" onClick={() => inputRef.current.click()}>
@@ -50,6 +55,8 @@ function Upload() {
          
       </div>
     </div>
+    </Grid>
+    </Grid>
   );
 }
 

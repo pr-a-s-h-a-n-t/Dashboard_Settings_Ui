@@ -15,8 +15,8 @@ function Mortages() {
   const dispatch = useDispatch();
   const StepperValue = useSelector((state) => state.StepperValue);
   const { steppervalue } = StepperValue;
-  console.log(`Stepper value in mortage: ${StepperValue}`);
-  console.log(`  value in mortage: ${steppervalue}`);
+  // console.log(`Stepper value in mortage: ${StepperValue}`);
+  // console.log(`  value in mortage: ${steppervalue}`);
 
   return (
     <div className="udf-container">
@@ -34,9 +34,12 @@ function Mortages() {
       <div className="Upload-container">
         {steppervalue === 0 ? <Upload /> : <MapChannels />}
       </div>
+      {/* <Grid item sm={12} xl={12}> */}
+
       <div className="bottomnavbar-container">
         <BottomNav />
       </div>
+      {/* </Grid> */}
     </div>
   );
 }

@@ -13,7 +13,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Channels from "./Channels/Channels";
-import { UpdateAdditionalSettings } from "../../store/actionCreater/AdditionalSettingsActions";
+import { UpdateAdditionalSettings, UpdateAdditionalSettingsoptions1 } from "../../store/actionCreater/AdditionalSettingsActions";
 import { useDispatch, useSelector } from "react-redux";
 
 const columns = [
@@ -34,25 +34,35 @@ const columns = [
 function MapChannels({}) {
   const dispatch = useDispatch();
   const AdditionalSettings = useSelector((state) => state.AdditionalSettings);
+  console.log("-------------------------------->", AdditionalSettings);
 
-  const { additionalsettings } = AdditionalSettings;
+  // const { settings } = AdditionalSettings;
+  // console.log("-------------------------------->", settings);
  
-  useEffect(() => {
-    let additionalSettings = ChannelsData.optionals[0];
+  // useEffect(() => {
+  //   let AdditionalSettings = ChannelsData.optionals[0];
 
-    if (additionalSettings) {
-      let options1 = Object.keys(additionalSettings)[0];
-      let options2 = Object.keys(additionalSettings)[1];
+    // if (AdditionalSettings) {
+    //   let options1 = Object.keys(AdditionalSettings)[0];
+    //   let options2 = Object.keys(AdditionalSettings)[1];
 
-      let settings = {
-        options1: additionalSettings.optional1,
-        options2: additionalSettings.optional1,
-      };
-      dispatch(UpdateAdditionalSettings(settings));
-    }
-  }, [dispatch]);
+    //   let settings = {
+    //     options1: AdditionalSettings.optional1,
+    //     options2: AdditionalSettings.optional1,
+    //   };
+      // dispatch(UpdateAdditionalSettings( ));
+    // }
+  // }, [dispatch]);
 
   // const [isChecked, setIsChecked] = useState(false);
+
+  // const updateAddtionalSettings = (value, option)=>{
+  //   // console.log('updateAddtionalSettings',value ,"------->", option);
+
+  //     dispatch(UpdateAdditionalSettingsoptions1(value, option));
+  //     console.log('dispatch called');
+
+  // }
 
   return (
     <div className="MapChannels-container">
@@ -83,38 +93,43 @@ function MapChannels({}) {
               </div>
               <div className="additional-setting-contianer-item">
                 <span>
+
                   <input
                     type="checkbox"
-                    // checked={additionalsettings }
-                    id={Object.keys(additionalsettings)[0]}
-                    // name={Object.keys(additionalsettings)[0]}
-                    // value={Object.keys(additionalsettings)[0]}
+                    
+                    // id={Object.keys(settings)[0]}
+                    // name={Object.keys(settings)[0]}
+                    // value={settings.options1}
                     // onChange={(e) =>
-                    //   setAddtionalOptions({ optional1: e.target.checked })
+                    //   updateAddtionalSettings(    )
                     // }
                   />
 
-                  <label htmlFor={Object.keys(additionalsettings)[0]}>
-                    {" "}
-                    {Object.keys(additionalsettings)[0]}{" "}
-                  </label>
+                   <label 
+                  // htmlFor={Object.keys(settings)[0]}
+                  >
+                   options1
+                    {/* {Object.keys( settings)[0]} */}
+                  </label>  
                 </span>
-                {/* <span>
+                  <span>
                   <input
                     type="checkbox"
-                    checked={additionalsettings.optional1}
-                    id={Object.keys(additionalsettings)[1]}
-                    name={Object.keys(additionalsettings)[1]}
-                    value={additionalsettings.optional2}
+                    // checked={AdditionalSettings.optional1}
+                    // id={Object.keys(AdditionalSettings)[1]}
+                    // name={Object.keys(AdditionalSettings)[1]}
+                    // value={AdditionalSettings.optional2}
                     // onChange={(e) =>
                     //   setAddtionalOptions({ optional2: e.target.checked })
                     // }
                   />
 
-                  <label htmlFor={Object.keys(additionalsettings)[1]}>
-                    {Object.keys(additionalsettings)[1]}
+                  <label 
+                  // htmlFor={Object.keys(AdditionalSettings)[1]}
+                  >Options2
+                    {/* {Object.keys(AdditionalSettings)[1]} */}
                   </label>
-                </span> */}
+                </span> 
               </div>
             </div>
           </div>
