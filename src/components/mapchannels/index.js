@@ -13,7 +13,10 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Channels from "./Channels/Channels";
-import { UpdateAdditionalSettings, UpdateAdditionalSettingsoptions1 } from "../../store/actionCreater/AdditionalSettingsActions";
+import {
+  UpdateAdditionalSettings,
+  UpdateAdditionalSettingsoptions1,
+} from "../../store/actionCreater/AdditionalSettingsActions";
 import { useDispatch, useSelector } from "react-redux";
 
 const columns = [
@@ -38,20 +41,20 @@ function MapChannels({}) {
 
   // const { settings } = AdditionalSettings;
   // console.log("-------------------------------->", settings);
- 
+
   // useEffect(() => {
   //   let AdditionalSettings = ChannelsData.optionals[0];
 
-    // if (AdditionalSettings) {
-    //   let options1 = Object.keys(AdditionalSettings)[0];
-    //   let options2 = Object.keys(AdditionalSettings)[1];
+  // if (AdditionalSettings) {
+  //   let options1 = Object.keys(AdditionalSettings)[0];
+  //   let options2 = Object.keys(AdditionalSettings)[1];
 
-    //   let settings = {
-    //     options1: AdditionalSettings.optional1,
-    //     options2: AdditionalSettings.optional1,
-    //   };
-      // dispatch(UpdateAdditionalSettings( ));
-    // }
+  //   let settings = {
+  //     options1: AdditionalSettings.optional1,
+  //     options2: AdditionalSettings.optional1,
+  //   };
+  // dispatch(UpdateAdditionalSettings( ));
+  // }
   // }, [dispatch]);
 
   // const [isChecked, setIsChecked] = useState(false);
@@ -68,19 +71,27 @@ function MapChannels({}) {
     <div className="MapChannels-container">
       <form>
         <div className="mapChannels-table">
-          <div className="table-head">
-            {columns.map((column, index) => {
-              return (
-                <div
-                  key={index}
-                  style={{
-                    width: column.width ? column.width : "25%",
-                  }}
-                >
-                  {column.title}
-                </div>
-              );
-            })}
+         
+            <div className="table-head">
+            <div className="ck">
+              {columns.map((column, index) => {
+                return (
+                  <div
+                    key={index}
+                    style={{
+                     
+                      // backgroundColor: "red",
+                      // marginLeft: "56px",
+                      // width: "70%",
+                      // paddingRight: "10px",
+                      // marginRight: "20px",
+                    }}
+                  >
+                    {column.title}
+                  </div>
+                );
+              })}
+            </div>
           </div>
           <div className="table-row-container">
             <div>
@@ -93,10 +104,9 @@ function MapChannels({}) {
               </div>
               <div className="additional-setting-contianer-item">
                 <span>
-
                   <input
                     type="checkbox"
-                    
+
                     // id={Object.keys(settings)[0]}
                     // name={Object.keys(settings)[0]}
                     // value={settings.options1}
@@ -105,14 +115,14 @@ function MapChannels({}) {
                     // }
                   />
 
-                   <label 
+                  <label
                   // htmlFor={Object.keys(settings)[0]}
                   >
-                   options1
+                    options1
                     {/* {Object.keys( settings)[0]} */}
-                  </label>  
+                  </label>
                 </span>
-                  <span>
+                <span>
                   <input
                     type="checkbox"
                     // checked={AdditionalSettings.optional1}
@@ -124,12 +134,13 @@ function MapChannels({}) {
                     // }
                   />
 
-                  <label 
+                  <label
                   // htmlFor={Object.keys(AdditionalSettings)[1]}
-                  >Options2
+                  >
+                    Options2
                     {/* {Object.keys(AdditionalSettings)[1]} */}
                   </label>
-                </span> 
+                </span>
               </div>
             </div>
           </div>

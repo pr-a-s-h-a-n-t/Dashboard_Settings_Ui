@@ -1,7 +1,7 @@
 .MapChannels-container {
   height: 100%;
   overflow: scroll;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   /* overflow: scroll !important; */
 }
 .table-row-container {
@@ -9,7 +9,18 @@
   /* overflow: scroll; */
   height: 100%;
 }
+.ck{
+  width: 65%;
+ 
+  
+  display: flex;
+  /* gap: 7rem; */
+  margin: 20px 56px;
+  font-weight: 800;
+  align-items: center;
+  justify-content: space-between !important;
 
+}
 .table-head {
   /* width: 1508px; */
   max-width: 100%;
@@ -22,20 +33,6 @@
   margin: 20px 0;
   font-weight: 800;
   align-items: center;
-
-  /* font-size: clamp(2px, 1.5vw, 20px); */
-
-  /* padding: 20px; */
-  /* box-shadow: 0px 4px 8px rgb(0 0 0 / 20%); */
-  /* border-radius: 15px; */
-}
-
-.table-head div {
-  /* width: clamp(6px, 1.4vw, 20px);
-  font-weight: 600;
-  color: inherit;
-  text-align: center; */
-  width: fit-content;
   height: 23px;
 
   font-family: "DM Sans";
@@ -45,7 +42,15 @@
   line-height: 23px;
 
   color: #0f0f0f;
+  /* font-size: clamp(2px, 1.5vw, 20px); */
+
+  padding: 20px;
+  /* box-shadow: 0px 4px 8px rgb(0 0 0 / 20%); */
+  /* border-radius: 15px; */
 }
+
+ 
+ 
 
 .table-row {
   min-width: 1508px;

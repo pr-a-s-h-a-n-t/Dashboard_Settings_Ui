@@ -26,8 +26,10 @@ export default function Channels() {
 
   const dispatch = useDispatch();
   const AllChannels = useSelector((state) => state.AllChannels);
+  const StepperValue = useSelector((state) => state.StepperValue);
 
   const { allChannels } = AllChannels;
+  const { steppervalue } = StepperValue;
 
   useEffect(() => {
     let mapchannelsdata = JSON.parse(localStorage.getItem("MapChannelsData"));
@@ -80,8 +82,10 @@ export default function Channels() {
     console.log("editChannels", index, id);
   };
 
+  const openEditOptions = (index, id) => {};
+
   return (
-    <Box sx={{ m: 8 }}>
+    <Box sx={{ m: 3 }}>
       <Grid container spacing={1}>
         {allChannels && allChannels.length > 0 ? (
           allChannels.map((ch, id) => {
@@ -136,14 +140,14 @@ export default function Channels() {
                     onChange={(data) => handleChangeref(data, id)}
                   />
                 </Grid>
-                {/* <Grid container> */}
-                {allChannels ? (
+                {/* <Grid item > */}
+                {steppervalue < 2 ? (
                   <Grid
                     item
-                    xs={2}
+                    xs={2.5}
                     sx={{
                       border: "2px solid red",
-                      background: "silver",
+                      background: "brown",
                       display: "flex",
                       justifyContent: "center",
                       alignItems: "center",
@@ -160,138 +164,170 @@ export default function Channels() {
                     </Button>
                   </Grid>
                 ) : (
-                  <Grid
-                    item
-                    xs={3}
-                    sx={{
-                      border: "2px solid red",
-                      background: "silver",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    <Button
-                      variant="contained"
-                      onClick={() => editChannels(id)}
-                      sx={{}}
-                    >
-                      Edit Channel
-                    </Button>
-                  </Grid>
+                  ""
                 )}
                 {/* </Grid> */}
+
                 {allChannels[id].showBackUp === true ? (
                   <Grid
                     container
                     // xs={12}
-                    sx={{
-                      border: "2px solid aquamarine",
-                      background: "silver",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      margin: "5px",
-                    }}
+                    // sx={{
+                    //   border: "2px solid aquamarine",
+                    //   background: "silver",
+                    //   display: "flex",
+                    //   justifyContent: "center",
+                    //   alignItems: "center",
+                    //   margin: "5px",
+                    // }}
                   >
-                    {allChannels[id].backupChannels &&
-                    allChannels[id].backupChannels.length > 0
-                      ? allChannels[id].backupChannels.map((ch, index) => {
-                          return (
-                            <Grid
-                              container
-                              margin="auto"
-                              sx={{
-                                border: "2px solid red",
-                                background: "blue",
-                              }}
-                              key={index}
-                            >
+                    <Grid
+                      item
+                      sx={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                      xs={2}
+                    >
+                      <Typography p> Backup Channels</Typography>
+                    </Grid>
+
+                    <Grid xs={steppervalue < 2 ? 10 : 7} item>
+                      {allChannels[id].backupChannels &&
+                      allChannels[id].backupChannels.length > 0
+                        ? allChannels[id].backupChannels.map((ch, index) => {
+                            return (
                               <Grid
-                                item
-                                xs={5}
+                                container
+                                rowGap={2}
+                                // margin="auto"
                                 sx={{
                                   border: "2px solid red",
-                                  background: "silver",
+                                  background: "blue",
                                 }}
+                                key={index}
                               >
-                                <CustomDropDown
-                                  dropDownList={primaryChannelOption}
-                                  value={ch.primaryChannel}
-                                  onChange={(data) =>
-                                    handleChangePrimaryBackUpChannel(
-                                      data,
-                                      index,
-                                      id
-                                    )
-                                  }
-                                />
-                              </Grid>
-                              <Grid
-                                item
-                                xs={5}
-                                sx={{
-                                  border: "2px solid red",
-                                  background: "silver",
-                                  //  margin: "auto"
-                                }}
-                              >
-                                <CustomDropDown
-                                  dropDownList={referenceChannelOption}
-                                  value={ch.refChannel}
-                                  onChange={(data) =>
-                                    handleChangerefBackUpChannel(
-                                      data,
-                                      index,
-                                      id
-                                    )
-                                  }
-                                />
-                              </Grid>
-                              <Grid
-                                item
-                                xs={2}
-                                sx={{
-                                  border: "2px solid red",
-                                  background: "silver",
-                                  display: "flex",
-                                  justifyContent: "center",
-                                  alignItems: "center",
-                                }}
-                              >
-                                <Button
-                                  onClick={() => {
-                                    handleRemoveBackUpChannels(index, id);
+                                <Grid
+                                  item
+                                  xs={4.2}
+                                  sx={{
+                                    border: "2px solid red",
+                                    background: "silver",
                                   }}
                                 >
-                                  {" "}
-                                  <DeleteIcon />
-                                  Delete{" "}
-                                </Button>
+                                  <CustomDropDown
+                                    dropDownList={primaryChannelOption}
+                                    value={ch.primaryChannel}
+                                    onChange={(data) =>
+                                      handleChangePrimaryBackUpChannel(
+                                        data,
+                                        index,
+                                        id
+                                      )
+                                    }
+                                  />
+                                </Grid>
+                                <Grid
+                                  item
+                                  xs={4.2}
+                                  // ml={2}
+                                  sx={{
+                                    border: "2px solid red",
+                                    background: "silver",
+                                    //  margin: "auto"
+                                  }}
+                                >
+                                  <CustomDropDown
+                                    dropDownList={referenceChannelOption}
+                                    value={ch.refChannel}
+                                    onChange={(data) =>
+                                      handleChangerefBackUpChannel(
+                                        data,
+                                        index,
+                                        id
+                                      )
+                                    }
+                                  />
+                                </Grid>
+                                {steppervalue < 2 ? (
+                                  <Grid
+                                    item
+                                    xs={1.5}
+                                    m="auto"
+                                    sx={{
+                                      border: "2px solid red",
+                                      background: "silver",
+                                      display: "flex",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                    }}
+                                  >
+                                    <Button
+                                      onClick={() => {
+                                        handleRemoveBackUpChannels(index, id);
+                                      }}
+                                    >
+                                      {" "}
+                                      <DeleteIcon />
+                                      Delete{" "}
+                                    </Button>
+                                  </Grid>
+                                ) : (
+                                  ""
+                                )}
                               </Grid>
-                            </Grid>
-                          );
-                        })
-                      : ""}
-                    <Grid container>
+                            );
+                          })
+                        : ""}
+                    </Grid>
+                    {steppervalue === 2 ? (
                       <Grid
-                        xs={12}
+                        item
                         sx={{
                           display: "flex",
-                          justifyContent: "center",
+                          flexDirection: "column",
                           alignItems: "center",
+                          justifyContent: "center",
+                          margin: "auto",
                         }}
-                        item
                       >
                         <Button
-                          onClick={() => {
-                            addChannels(id);
-                          }}
+                          variant="contained"
+                          onClick={() => openEditOptions(id)}
+                          sx={{}}
                         >
-                          + Add backup channels
+                          Edit Channel
                         </Button>
                       </Grid>
-                    </Grid>
+                    ) : (
+                      ""
+                    )}
+                    {steppervalue < 2 ? (
+                      <Grid container>
+                        <Grid
+                          xs={2.5}
+                          ml="14%"
+                          sx={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            borderBottom: "5px solid blue",
+                          }}
+                          item
+                        >
+                          <Button
+                            onClick={() => {
+                              addChannels(id);
+                            }}
+                          >
+                            + Add backup channels
+                          </Button>
+                        </Grid>
+                      </Grid>
+                    ) : (
+                      ""
+                    )}
                   </Grid>
                 ) : (
                   ""
