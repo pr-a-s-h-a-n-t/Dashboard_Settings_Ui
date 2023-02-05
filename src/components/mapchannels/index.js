@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Grid } from "@mui/material";
 import "./MapChannels.css";
 import { ChannelsData } from "../common/JsonData/schema";
 import CustomDropDown from "../../components/common/customdropdown/CustomDropDown";
@@ -18,6 +19,7 @@ import {
   UpdateAdditionalSettingsoptions2,
 } from "../../store/actionCreater/AdditionalSettingsActions";
 import { useDispatch, useSelector } from "react-redux";
+import { border } from "@mui/system";
 
 const columns = [
   {
@@ -67,55 +69,77 @@ function MapChannels() {
             </div>
 
             <div className="additional-setting-contianer">
-              <div className="additional-setting-contianer-item">
-                Additional Settings
-              </div>
-              <div className="additional-setting-contianer-item">
-                {steppervalue === 3 && adsettings[0].options1 === true ? (
-                  <span> {Object.keys(adsettings[0])[0]}</span>
-                ) : steppervalue < 3 ? (
-                  <span>
-                    <input
-                      type="checkbox"
-                      disabled={steppervalue === 3 ? true : false}
-                      checked={adsettings[0].options1}
-                      value={adsettings.options1}
-                      onChange={(e) =>
-                        updateAddtionalSettings(Object.keys(adsettings[0])[0])
-                      }
-                    />
+              <Grid container>
+                <Grid
+                  sm={12}
+                  sx={{
+                    maxWidth: "100%",
+                    display: "flex",
+                    justifyContent: "flex-start",
+                    alignItems: "center",
+                    marginLeft: "76px",
+                    background: " #FFFFFF",
+                    // paddingTop: " 3%",
+                    paddingLeft: " 2%",
+                    gap: " 40px",
+                  }}
+                  item
+                >
+                  <div className="additional-setting-contianer-item">
+                    Additional Settings
+                  </div>
+                  <div className="additional-setting-contianer-item">
+                    {steppervalue === 3 && adsettings[0].options1 === true ? (
+                      <span> {Object.keys(adsettings[0])[0]}</span>
+                    ) : steppervalue < 3 ? (
+                      <span>
+                        <input
+                          type="checkbox"
+                          disabled={steppervalue === 3 ? true : false}
+                          checked={adsettings[0].options1}
+                          value={adsettings.options1}
+                          onChange={(e) =>
+                            updateAddtionalSettings(
+                              Object.keys(adsettings[0])[0]
+                            )
+                          }
+                        />
 
-                    <label htmlFor={Object.keys(adsettings[0])[0]}>
-                      {Object.keys(adsettings[0])[0]}
-                    </label>
-                  </span>
-                ) : (
-                  ""
-                )}
-                {steppervalue === 3 && adsettings[0].options2 === true ? (
-                  <span> {Object.keys(adsettings[0])[1]}</span>
-                ) : steppervalue < 3 ? (
-                  <span>
-                    <input
-                      type="checkbox"
-                      disabled={steppervalue === 3 ? true : false}
-                      checked={adsettings[0].options2}
-                      id={Object.keys(adsettings[0])[1]}
-                      value={adsettings.options1}
-                      onChange={(e) =>
-                        updateAddtionalSettings(Object.keys(adsettings[0])[1])
-                      }
-                    />
+                        <label htmlFor={Object.keys(adsettings[0])[0]}>
+                          {Object.keys(adsettings[0])[0]}
+                        </label>
+                      </span>
+                    ) : (
+                      ""
+                    )}
+                    {steppervalue === 3 && adsettings[0].options2 === true ? (
+                      <span> {Object.keys(adsettings[0])[1]}</span>
+                    ) : steppervalue < 3 ? (
+                      <span>
+                        <input
+                          type="checkbox"
+                          disabled={steppervalue === 3 ? true : false}
+                          checked={adsettings[0].options2}
+                          id={Object.keys(adsettings[0])[1]}
+                          value={adsettings.options1}
+                          onChange={(e) =>
+                            updateAddtionalSettings(
+                              Object.keys(adsettings[0])[1]
+                            )
+                          }
+                        />
 
-                    <label htmlFor={Object.keys(adsettings[0])[1]}>
-                      {/* Options2 */}
-                      {Object.keys(adsettings[0])[1]}
-                    </label>
-                  </span>
-                ) : (
-                  ""
-                )}
-              </div>
+                        <label htmlFor={Object.keys(adsettings[0])[1]}>
+                          {/* Options2 */}
+                          {Object.keys(adsettings[0])[1]}
+                        </label>
+                      </span>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                </Grid>
+              </Grid>
             </div>
           </div>
         </div>

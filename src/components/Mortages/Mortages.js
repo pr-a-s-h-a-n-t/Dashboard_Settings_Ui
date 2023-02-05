@@ -12,9 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   SavedAdditionalSettings,
   UpdateAdditionalSettings,
- 
 } from "../../store/actionCreater/AdditionalSettingsActions";
- 
 
 function Mortages() {
   const dispatch = useDispatch();
@@ -23,7 +21,7 @@ function Mortages() {
 
   useEffect(() => {
     let savedAdSettings = JSON.parse(localStorage.getItem("adsettings"));
-    
+
     if (savedAdSettings) {
       dispatch(SavedAdditionalSettings(savedAdSettings));
     } else {
