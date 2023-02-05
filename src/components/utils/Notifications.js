@@ -8,12 +8,10 @@ export const Notification = ({ message, type = null }) => {
     message: message,
     type: type ?? "success",
     insert: "top",
-    
+
     container: "top-center",
     animationIn: ["animate__animated", "animate__fadeIn"],
     animationOut: ["animate__animated", "animate__fadeOut"],
-    // className: type === "error" ? "notification-error" : "notification",
-    // style: { backgroundColor: type === "error" ? "red" : "green" },
     dismiss: {
       duration: 5000,
       onScreen: true,

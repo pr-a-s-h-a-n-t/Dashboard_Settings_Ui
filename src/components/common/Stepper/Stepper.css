@@ -8,9 +8,9 @@
   background: #ffffff;
   border-radius: 0.5rem;
   display: flex;
-  /* justify-content: space-around; */
+ 
   align-items: center;
-  /* gap: clamp(32px 10vw 467px); */
+  
 }
 hr {
   width: 467px;

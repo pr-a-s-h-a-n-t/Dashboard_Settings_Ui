@@ -1,15 +1,7 @@
-/* display size is 1900px 
-Note- work on css after completing the logic part!!!
-*/
 .upload-edfs-conatainer {
-  /* position: absolute; */
   width: 95%;
   height: 35.625rem;
-  /* height: clamp(80px, auto, 35.625rem); */
   margin: 40px auto;
-  /* border: 1px solid red; */
-  /* background: #ffffff; */
-  /* background-color: aquamarine; */
   border-radius: 5.43313px;
   display: flex;
   justify-content: center;
@@ -30,7 +22,7 @@ Note- work on css after completing the logic part!!!
 .upload {
   width: 174px;
   height: 196px;
-  /* border: 1px solid red; */
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -47,14 +39,12 @@ Note- work on css after completing the logic part!!!
   margin-top: 20px;
   width: 174px;
   height: 45px;
-
   background: #eaeaea;
   border: 1px solid #6d6d6d;
   border-radius: 5px;
 }
 
 .upload h5 {
-  /* position: absolute; */
   width: 129px;
   height: 21px;
   padding: 0;

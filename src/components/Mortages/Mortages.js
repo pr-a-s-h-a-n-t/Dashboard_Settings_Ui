@@ -9,25 +9,34 @@ import Upload from "../edf/index";
 import MapChannels from "../mapchannels";
 import TopHeading from "../../components/common/TopHeading/index";
 import { useDispatch, useSelector } from "react-redux";
+import {
+  SavedAdditionalSettings,
+  UpdateAdditionalSettings,
+ 
+} from "../../store/actionCreater/AdditionalSettingsActions";
+ 
 
 function Mortages() {
-  // const [stepperValue, setStepperValue] = useState(0);
   const dispatch = useDispatch();
   const StepperValue = useSelector((state) => state.StepperValue);
   const { steppervalue } = StepperValue;
-  // console.log(`Stepper value in mortage: ${StepperValue}`);
-  // console.log(`  value in mortage: ${steppervalue}`);
+
+  useEffect(() => {
+    let savedAdSettings = JSON.parse(localStorage.getItem("adsettings"));
+    
+    if (savedAdSettings) {
+      dispatch(SavedAdditionalSettings(savedAdSettings));
+    } else {
+      dispatch(UpdateAdditionalSettings());
+    }
+  }, [dispatch]);
 
   return (
     <div className="udf-container">
-    <Grid  
-    sx={{
-      
-    }}
-    item>
-      <div className="sidenavbarcontainer">
-        <SideNavBar />
-      </div>
+      <Grid sx={{}} item>
+        <div className="sidenavbarcontainer">
+          <SideNavBar />
+        </div>
       </Grid>
 
       <div>

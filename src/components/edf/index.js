@@ -12,8 +12,6 @@ function Upload() {
     let file = e.target.files[0];
     setUploadLoading(1);
     setEdf(file);
-    // inputRef.current = edf;
-    console.log("edf", edf, "==============>", inputRef.current);
   };
 
   return (

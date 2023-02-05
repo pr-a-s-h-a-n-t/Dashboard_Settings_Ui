@@ -1,24 +1,14 @@
 .bottomnav-container {
   max-width: 100%;
   max-height: 8.5625rem;
-  /* margin: 0 auto; */
-  /* border: 1px solid red; */
+
   background: #ffffff;
   border-radius: 0.5rem;
   display: flex;
   justify-content: space-between;
-
-  /* my css */
   padding: 23px 50px;
-  
- /* position:relative; */
-  /* left: 300px; */
   margin-left: 300px;
-   /* bottom: 0;  */
-   
   align-items: center;
-
-  /* gap: 29.1875rem; */
 }
 .bottomnavcontainer-element-start {
   display: flex;
@@ -27,10 +17,7 @@
   justify-content: center;
   align-items: center;
 }
-
-.bottomnav-container-element-end {
-  /* margin-right: 56px; */
-}
+ 
 #cancel-montage {
   margin-left: 2.25rem;
 }
@@ -40,7 +27,6 @@
   justify-content: center;
   align-items: center;
   padding: 1.25rem 2rem;
-  /* gap: 0.625rem; */
   width: 11.3125rem;
   height: 4.125rem;
   background: #9bc4ea;

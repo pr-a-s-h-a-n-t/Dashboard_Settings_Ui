@@ -14,8 +14,8 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Channels from "./Channels/Channels";
 import {
-  UpdateAdditionalSettings,
   UpdateAdditionalSettingsoptions1,
+  UpdateAdditionalSettingsoptions2,
 } from "../../store/actionCreater/AdditionalSettingsActions";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -34,9 +34,21 @@ const columns = [
   },
 ];
 
-function MapChannels({}) {
+function MapChannels() {
   const dispatch = useDispatch();
   const AdditionalSettings = useSelector((state) => state.AdditionalSettings);
+
+  const { adsettings } = AdditionalSettings;
+  const StepperValue = useSelector((state) => state.StepperValue);
+  const { steppervalue } = StepperValue;
+
+  const updateAddtionalSettings = (value) => {
+    if (value === "options1") {
+      dispatch(UpdateAdditionalSettingsoptions1(value));
+    } else if (value === "options2") {
+      dispatch(UpdateAdditionalSettingsoptions2(value));
+    }
+  };
 
   return (
     <div className="MapChannels-container">
@@ -59,43 +71,50 @@ function MapChannels({}) {
                 Additional Settings
               </div>
               <div className="additional-setting-contianer-item">
-                <span>
-                  <input
-                    type="checkbox"
-                    // id={Object.keys(settings)[0]}
-                    // name={Object.keys(settings)[0]}
-                    // value={settings.options1}
-                    // onChange={(e) =>
-                    //   updateAddtionalSettings(    )
-                    // }
-                  />
+                {steppervalue === 3 && adsettings[0].options1 === true ? (
+                  <span> {Object.keys(adsettings[0])[0]}</span>
+                ) : steppervalue < 3 ? (
+                  <span>
+                    <input
+                      type="checkbox"
+                      disabled={steppervalue === 3 ? true : false}
+                      checked={adsettings[0].options1}
+                      value={adsettings.options1}
+                      onChange={(e) =>
+                        updateAddtionalSettings(Object.keys(adsettings[0])[0])
+                      }
+                    />
 
-                  <label
-                  // htmlFor={Object.keys(settings)[0]}
-                  >
-                    options1
-                    {/* {Object.keys( settings)[0]} */}
-                  </label>
-                </span>
-                <span>
-                  <input
-                    type="checkbox"
-                    // checked={AdditionalSettings.optional1}
-                    // id={Object.keys(AdditionalSettings)[1]}
-                    // name={Object.keys(AdditionalSettings)[1]}
-                    // value={AdditionalSettings.optional2}
-                    // onChange={(e) =>
-                    //   setAddtionalOptions({ optional2: e.target.checked })
-                    // }
-                  />
+                    <label htmlFor={Object.keys(adsettings[0])[0]}>
+                      {Object.keys(adsettings[0])[0]}
+                    </label>
+                  </span>
+                ) : (
+                  ""
+                )}
+                {steppervalue === 3 && adsettings[0].options2 === true ? (
+                  <span> {Object.keys(adsettings[0])[1]}</span>
+                ) : steppervalue < 3 ? (
+                  <span>
+                    <input
+                      type="checkbox"
+                      disabled={steppervalue === 3 ? true : false}
+                      checked={adsettings[0].options2}
+                      id={Object.keys(adsettings[0])[1]}
+                      value={adsettings.options1}
+                      onChange={(e) =>
+                        updateAddtionalSettings(Object.keys(adsettings[0])[1])
+                      }
+                    />
 
-                  <label
-                  // htmlFor={Object.keys(AdditionalSettings)[1]}
-                  >
-                    Options2
-                    {/* {Object.keys(AdditionalSettings)[1]} */}
-                  </label>
-                </span>
+                    <label htmlFor={Object.keys(adsettings[0])[1]}>
+                      {/* Options2 */}
+                      {Object.keys(adsettings[0])[1]}
+                    </label>
+                  </span>
+                ) : (
+                  ""
+                )}
               </div>
             </div>
           </div>
